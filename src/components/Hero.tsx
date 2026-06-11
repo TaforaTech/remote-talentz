@@ -1,0 +1,106 @@
+import Link from "next/link";
+import HeroAnimation from "./HeroAnimation";
+import { allRoles } from "@/lib/roles";
+
+const STATS = [
+  { value: "48h", label: "to an interview-ready shortlist" },
+  { value: "1.4%", label: "of applicants make the network" },
+  { value: "60%", label: "average savings vs. local hires" },
+  { value: "14 days", label: "risk-free trial on every hire" },
+];
+
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden pt-nav">
+      {/* Oversized watermark asterisk */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-[12%] -top-[18%] select-none font-display text-[calc(var(--rt-step-hero)*6)] leading-none text-red/[0.06] motion-safe:animate-[rt-spin-slow_120s_linear_infinite]"
+      >
+        ✱
+      </div>
+
+      {/* Fills the viewport on any screen; grows on short screens */}
+      <div className="container-rt relative flex min-h-[calc(100svh-var(--rt-nav-h))] flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
+        <div className="grid grid-cols-1 items-center gap-x-2 gap-y-16 lg:grid-cols-[1.05fr_0.95fr]">
+          {/* Copy */}
+          <div>
+            <p className="eyebrow anim-fade-up">
+              <span aria-hidden="true">✱</span> The AI-native talent network
+            </p>
+
+            <h1
+              className="anim-fade-up mt-6 font-display text-hero font-bold tracking-[-0.03em] text-ink lg:text-4xl"
+              style={{ animationDelay: "100ms" }}
+            >
+              Hire Elite AI-Native Talents
+              <br />
+              Save Up to 82%
+            </h1>
+
+            <p
+              className="anim-fade-up mt-7  text-lg text-ink-soft"
+              style={{ animationDelay: "220ms" }}
+            >
+              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 85%. No upfront cost, pay only when you hire with replacement guarantee.
+            </p>
+
+            <div
+              className="anim-fade-up mt-9 flex flex-wrap items-center gap-4"
+              style={{ animationDelay: "320ms" }}
+            >
+              <Link href="#contact" className="btn btn-red">
+                Start Hiring
+                <span aria-hidden="true">→</span>
+              </Link>
+              <Link href="#how-we-work" className="btn btn-ghost">
+                See how we work
+              </Link>
+            </div>
+          </div>
+
+          {/* Animated goal explainer: brief → vetting → embedded */}
+          <div className="anim-fade-up" style={{ animationDelay: "260ms" }}>
+            <HeroAnimation />
+          </div>
+        </div>
+
+        {/* Stats rail */}
+        <div
+          className="anim-fade-up mt-[clamp(3rem,7vh,5.5rem)] grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4"
+          style={{ animationDelay: "420ms" }}
+        >
+          {STATS.map((s) => (
+            <div key={s.value} className="bg-paper-raised p-6 lg:p-8">
+              <p className="font-display text-3xl font-bold tracking-tight text-ink">
+                {s.value}
+              </p>
+              <p className="mt-2 text-xs text-ink-soft">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Role ticker */}
+      <div className="border-y border-line bg-ink py-3.5" aria-hidden="true">
+        <div className="flex overflow-hidden">
+          <div className="ticker-track flex shrink-0 items-center">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center">
+                {allRoles.map((role) => (
+                  <span
+                    key={`${copy}-${role.name}`}
+                    className="flex items-center gap-6 px-6 font-display text-sm font-semibold uppercase tracking-[0.14em] text-paper/80"
+                  >
+                    {role.name}
+                    <span className="text-red">✱</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

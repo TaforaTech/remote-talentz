@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm update:*)"
+      "Bash(npm update:*)",
+      "PowerShell(npm run *)"
     ]
   }
 }
