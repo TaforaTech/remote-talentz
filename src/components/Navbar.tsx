@@ -175,7 +175,6 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link href="#contact" className="btn btn-ink">
             Start Hiring
-            <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -260,7 +259,6 @@ export default function Navbar() {
 
           <Link href="#contact" onClick={closeAll} className="btn btn-red mt-8 w-full">
             Start Hiring
-            <span aria-hidden="true">→</span>
           </Link>
         </div>
       )}

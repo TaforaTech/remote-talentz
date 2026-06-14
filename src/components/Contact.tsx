@@ -89,7 +89,6 @@ export default function Contact() {
               </div>
               <button type="submit" className="btn btn-red mt-7 w-full sm:w-auto">
                 Start Hiring
-                <span aria-hidden="true">→</span>
               </button>
             </form>
           ) : (

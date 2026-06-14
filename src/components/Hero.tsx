@@ -52,7 +52,6 @@ export default function Hero() {
             >
               <Link href="#contact" className="btn btn-red">
                 Start Hiring
-                <span aria-hidden="true">→</span>
               </Link>
               <Link href="#how-we-work" className="btn btn-ghost">
                 See how we work
