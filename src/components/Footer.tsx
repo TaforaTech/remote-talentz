@@ -78,12 +78,12 @@ export default function Footer() {
         </div>
 
         {/* Oversized wordmark */}
-        <p
+        {/* <p
           aria-hidden="true"
           className="mt-16 select-none border-t border-paper/10 pt-12 text-center font-display text-hero font-bold tracking-[-0.03em] text-paper/[0.07]"
         >
           remotetalentz<span className="text-red/40">✱</span>
-        </p>
+        </p> */}
 
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-paper/10 pt-6 sm:flex-row">
           <p className="text-2xs text-paper/40">

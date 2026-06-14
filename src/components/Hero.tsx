@@ -21,12 +21,12 @@ export default function Hero() {
       </div>
 
       {/* Fills the viewport on any screen; grows on short screens */}
-      <div className="container-rt relative flex min-h-[calc(100svh-var(--rt-nav-h))] flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
+      <div className="container-rt relative flex min-h-svh flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
         <div className="grid grid-cols-1 items-center gap-x-2 gap-y-16 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Copy */}
           <div>
             <p className="eyebrow anim-fade-up">
-              <span aria-hidden="true">✱</span> The AI-native talent network
+               The AI-native talent network
             </p>
 
             <h1
@@ -39,7 +39,7 @@ export default function Hero() {
             </h1>
 
             <p
-              className="anim-fade-up mt-7  text-lg text-ink-soft"
+              className="anim-fade-up mt-7  text-md text-ink-soft"
               style={{ animationDelay: "220ms" }}
             >
               Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 85%. No upfront cost, pay only when you hire with replacement guarantee.
