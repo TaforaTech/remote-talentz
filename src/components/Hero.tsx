@@ -25,7 +25,7 @@ export default function Hero() {
             </p>
 
             <h1
-              className="anim-fade-up mt-6 font-display text-hero font-bold tracking-[-0.03em] text-ink lg:text-4xl"
+              className="anim-fade-up mt-6 font-display text-hero font-bold tracking-[-0.03em] text-ink lg:text-6xl"
               style={{ animationDelay: "100ms" }}
             >
               Hire Elite AI-Native Talents

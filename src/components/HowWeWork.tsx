@@ -42,7 +42,7 @@ export default function HowWeWork() {
           <p className="eyebrow">
             <span aria-hidden="true">✱</span> How we work
           </p>
-          <h2 className="mt-5 max-w-3xl font-display text-4xl font-bold tracking-[-0.02em]">
+          <h2 className="mt-5 max-w-3xl font-display text-4xl font-semibold tracking-[-0.02em]">
             From brief to embedded engineer in{" "}
             <span className="text-red">four steps.</span>
           </h2>
@@ -53,14 +53,14 @@ export default function HowWeWork() {
             <Reveal key={step.n} delay={i * 90}>
               <article className="group flex h-full flex-col bg-ink p-8 transition-colors duration-300 hover:bg-[#161412]">
                 <div className="flex items-baseline justify-between">
-                  <span className="font-display text-3xl font-bold text-red">
+                  <span className="font-display text-3xl font-semibold text-red">
                     {step.n}
                   </span>
                   <span className="font-mono text-2xs uppercase tracking-[0.2em] text-paper/40">
                     {step.meta}
                   </span>
                 </div>
-                <h3 className="mt-8 font-display text-xl font-bold">{step.title}</h3>
+                <h3 className="mt-8 font-display text-xl font-semibold">{step.title}</h3>
                 <p className="mt-3 text-sm text-paper/65">{step.body}</p>
               </article>
             </Reveal>

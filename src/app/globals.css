@@ -65,10 +65,13 @@
   --color-red-deep: var(--rt-red-deep);
   --color-red-tint: var(--rt-red-tint);
 
-  /* Fonts */
-  --font-display: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
-  --font-sans: var(--font-instrument), "Instrument Sans", sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  /* Fonts — single typeface (Inter) across the whole site. font-display,
+     font-sans and font-mono all resolve to Inter, so the site uses one
+     family; weight/letter-spacing utilities still differentiate headings,
+     body and the uppercase "mono" labels. */
+  --font-display: var(--font-inter), "Inter", sans-serif;
+  --font-sans: var(--font-inter), "Inter", sans-serif;
+  --font-mono: var(--font-inter), "Inter", sans-serif;
 
   /* Type scale — overrides Tailwind's static sizes with fluid tokens */
   --text-2xs: var(--rt-step--2);

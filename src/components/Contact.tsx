@@ -14,7 +14,7 @@ export default function Contact() {
           <p className="eyebrow">
             <span aria-hidden="true">✱</span> Contact
           </p>
-          <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.02em] text-ink">
+          <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
             Tell us who
             <br />
             you need.
@@ -97,7 +97,7 @@ export default function Contact() {
                   <path d="M4 11.5l5 5L18 6" stroke="var(--rt-red)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="mt-5 font-display text-2xl font-bold text-ink">
+              <h3 className="mt-5 font-display text-2xl font-semibold text-ink">
                 Brief received.
               </h3>
               <p className="mt-3 max-w-sm text-sm text-ink-soft">
