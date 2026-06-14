@@ -3,13 +3,6 @@ import HeroAnimation from "./HeroAnimation";
 import StartHiringButton from "./StartHiringButton";
 import { allRoles } from "@/lib/roles";
 
-const STATS = [
-  { value: "48h", label: "to an interview-ready shortlist" },
-  { value: "1.4%", label: "of applicants make the network" },
-  { value: "60%", label: "average savings vs. local hires" },
-  { value: "14 days", label: "risk-free trial on every hire" },
-];
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-nav">
@@ -23,7 +16,7 @@ export default function Hero() {
       
 
       {/* Fills the viewport on any screen; grows on short screens */}
-      <div className="container-rt relative flex min-h-svh flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
+      <div className="container-rt relative flex min-h-[calc(100svh-var(--rt-nav-h))] flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
         <div className="grid grid-cols-1 items-center gap-x-2 gap-y-16 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Copy */}
           <div>
@@ -62,21 +55,6 @@ export default function Hero() {
           <div className="anim-fade-up" style={{ animationDelay: "260ms" }}>
             <HeroAnimation />
           </div>
-        </div>
-
-        {/* Stats rail */}
-        <div
-          className="anim-fade-up mt-[clamp(3rem,7vh,5.5rem)] grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4"
-          style={{ animationDelay: "420ms" }}
-        >
-          {STATS.map((s) => (
-            <div key={s.value} className="bg-paper-raised p-6 lg:p-8">
-              <p className="font-display text-3xl font-bold tracking-tight text-ink">
-                {s.value}
-              </p>
-              <p className="mt-2 text-xs text-ink-soft">{s.label}</p>
-            </div>
-          ))}
         </div>
       </div>
 
