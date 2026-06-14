@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { button, type ButtonVariant, type ButtonSize } from "@/lib/theme";
 
 type Props = {
-  /** Visual style — matches the `.btn-*` variants in globals.css. */
-  variant?: "red" | "ink";
+  /** Visual style — resolved from the centralized button recipe. */
+  variant?: ButtonVariant;
+  /** Padding + label size — resolved from the centralized button recipe. */
+  size?: ButtonSize;
   /** Extra utility classes (layout, margins, width). */
   className?: string;
   /** Render as a form submit button instead of a link to #contact. */
@@ -10,17 +13,15 @@ type Props = {
   onClick?: () => void;
 };
 
-// Tighter padding than the base `.btn` so a larger label reads bigger
-// without ballooning the overall button size.
-const SIZE = "!px-5 !py-2 text-base";
-
 export default function StartHiringButton({
   variant = "red",
+  size = "md",
   className = "",
   type = "link",
   onClick,
 }: Props) {
-  const classes = `btn btn-${variant} ${SIZE} ${className}`.trim();
+  const classes =
+    `${button.base} ${button.variant[variant]} ${button.size[size]} ${className}`.trim();
 
   if (type === "submit") {
     return (
