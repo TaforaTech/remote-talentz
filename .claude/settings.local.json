@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm update:*)",
-      "PowerShell(npm run *)"
+      "PowerShell(npm run *)",
+      "Bash(npx tsc *)"
     ]
   }
 }

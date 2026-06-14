@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
+import StartHiringButton from "./StartHiringButton";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -87,9 +88,7 @@ export default function Contact() {
                   />
                 </Field>
               </div>
-              <button type="submit" className="btn btn-red mt-7 w-full sm:w-auto">
-                Start Hiring
-              </button>
+              <StartHiringButton type="submit" variant="red" className="mt-7 w-full sm:w-auto" />
             </form>
           ) : (
             <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-line bg-paper p-12 text-center">

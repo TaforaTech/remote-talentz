@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroAnimation from "./HeroAnimation";
+import StartHiringButton from "./StartHiringButton";
 import { allRoles } from "@/lib/roles";
 
 const STATS = [
@@ -50,9 +51,7 @@ export default function Hero() {
               className="anim-fade-up mt-9 flex flex-wrap items-center gap-4"
               style={{ animationDelay: "320ms" }}
             >
-              <Link href="#contact" className="btn btn-red">
-                Start Hiring
-              </Link>
+              <StartHiringButton variant="red" />
               <Link href="#how-we-work" className="btn btn-ghost">
                 See how we work
               </Link>

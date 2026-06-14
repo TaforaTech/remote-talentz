@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
+import StartHiringButton from "./StartHiringButton";
 import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
 
@@ -173,9 +174,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="#contact" className="btn btn-ink">
-            Start Hiring
-          </Link>
+          <StartHiringButton variant="ink" />
         </div>
 
         {/* Mobile hamburger */}
@@ -257,9 +256,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <Link href="#contact" onClick={closeAll} className="btn btn-red mt-8 w-full">
-            Start Hiring
-          </Link>
+          <StartHiringButton variant="red" className="mt-8 w-full" onClick={closeAll} />
         </div>
       )}
     </header>
