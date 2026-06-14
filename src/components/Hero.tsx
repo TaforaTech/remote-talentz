@@ -13,12 +13,13 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-nav">
       {/* Oversized watermark asterisk */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-[12%] -top-[18%] select-none font-display text-[calc(var(--rt-step-hero)*6)] leading-none text-red/[0.06] motion-safe:animate-[rt-spin-slow_120s_linear_infinite]"
       >
         ✱
-      </div>
+      </div> */}
+      
 
       {/* Fills the viewport on any screen; grows on short screens */}
       <div className="container-rt relative flex min-h-svh flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
