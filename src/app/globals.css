@@ -34,8 +34,20 @@
   --rt-step-6: clamp(1.92rem, 1.12rem + 3.4vw, 4.04rem);
   --rt-step-hero: clamp(2.45rem, 1.05rem + 5.95vw, 6rem);
 
-  /* ---- Fluid rhythm ---- */
-  --rt-gutter: clamp(1.25rem, 0.6rem + 2.8vw, 3rem);
+  /* ---- Fluid rhythm ----
+     Left/right page gutter follows nsave.com: a flat ~5.55vw on every screen
+     (≈18px @ 375 → 43px @ 768 → 71px @ 1280 → 107px @ 1920), clamped so it
+     never collapses on tiny phones or runs away on ultrawide. The content
+     width is capped by --rt-content (below), so beyond ~1920px the extra
+     space flows symmetrically into the gutter — exactly nsave's behaviour. */
+  --rt-gutter: clamp(1.125rem, 5.55vw, 7rem);
+
+  /* Max line/content width. Kept in rem (not px like nsave) so it scales with
+     the root font-size bumps at ≥1920/2560/3840 — the page stays proportional
+     on 4K instead of stranding a fixed 1710px block in an ocean of margin.
+     1 rem = 16px → 106.875rem = 1710px at the base scale. */
+  --rt-content: 106.875rem;
+
   --rt-section: clamp(4.5rem, 2.8rem + 7vw, 9rem);
   --rt-nav-h: clamp(4rem, 3.4rem + 1.6vw, 4.75rem);
 }
@@ -115,7 +127,10 @@ body {
 /* ---- Shared component recipes ---- */
 .container-rt {
   width: 100%;
-  max-width: 80rem;
+  /* content caps at --rt-content; the +2*gutter lets the box hold both the
+     content and its side padding, so content width === --rt-content exactly
+     once the viewport is wide enough — surplus space becomes auto-margin. */
+  max-width: calc(var(--rt-content) + 2 * var(--rt-gutter));
   margin-inline: auto;
   padding-inline: var(--rt-gutter);
 }
