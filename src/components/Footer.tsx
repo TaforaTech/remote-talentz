@@ -80,7 +80,7 @@ export default function Footer() {
         {/* Oversized wordmark */}
         {/* <p
           aria-hidden="true"
-          className="mt-16 select-none border-t border-paper/10 pt-12 text-center font-display text-hero font-bold tracking-[-0.03em] text-paper/[0.07]"
+          className="mt-16 select-none border-t border-paper/10 pt-12 text-center font-display text-hero font-semibold tracking-[-0.03em] text-paper/[0.07]"
         >
           remotetalentz<span className="text-red/40">✱</span>
         </p> */}

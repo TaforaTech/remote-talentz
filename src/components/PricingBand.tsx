@@ -32,7 +32,7 @@ export default function PricingBand() {
             <span aria-hidden="true">✱</span> Pricing
           </p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-2xl font-display text-4xl font-bold tracking-[-0.02em] text-ink">
+            <h2 className="max-w-2xl font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
               Engagement models built for how you actually ship.
             </h2>
             <p className="max-w-md text-base text-ink-soft">
@@ -51,7 +51,7 @@ export default function PricingBand() {
                     {m.tag}
                   </span>
                 )}
-                <h3 className="font-display text-xl font-bold text-ink">{m.name}</h3>
+                <h3 className="font-display text-xl font-semibold text-ink">{m.name}</h3>
                 <p className="mt-3 flex-1 text-sm text-ink-soft">{m.body}</p>
                 <button
                   onClick={openPricing}
@@ -70,7 +70,7 @@ export default function PricingBand() {
         <Reveal className="mt-12 overflow-hidden rounded-2xl bg-ink">
           <div className="flex flex-col items-start justify-between gap-8 p-10 lg:flex-row lg:items-center">
             <div>
-              <h3 className="font-display text-2xl font-bold text-paper">
+              <h3 className="font-display text-2xl font-semibold text-paper">
                 The full rate card, straight to your inbox.
               </h3>
               <p className="mt-2 max-w-xl text-sm text-paper/65">

@@ -36,7 +36,7 @@ export default function About() {
             <p className="eyebrow">
               <span aria-hidden="true">✱</span> About Us
             </p>
-            <h2 className="mt-5 font-display text-4xl font-bold tracking-[-0.02em] text-ink">
+            <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
               A network,
               <br />
               not a marketplace.
@@ -63,7 +63,7 @@ export default function About() {
             <div className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-line bg-line">
               {FACTS.map((f) => (
                 <div key={f.label} className="bg-paper-raised p-5">
-                  <p className="font-display text-2xl font-bold text-red">{f.value}</p>
+                  <p className="font-display text-2xl font-semibold text-red">{f.value}</p>
                   <p className="mt-1 text-2xs text-ink-soft">{f.label}</p>
                 </div>
               ))}
@@ -85,7 +85,7 @@ export default function About() {
                   </blockquote>
                 </div>
                 <figcaption className="mt-8 border-t border-line-soft pt-4">
-                  <p className="font-display text-sm font-bold text-ink">{q.name}</p>
+                  <p className="font-display text-sm font-semibold text-ink">{q.name}</p>
                   <p className="mt-0.5 text-2xs text-ink-faint">{q.role}</p>
                 </figcaption>
               </figure>

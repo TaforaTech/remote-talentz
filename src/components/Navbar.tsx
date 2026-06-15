@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
+import StartHiringButton from "./StartHiringButton";
 import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
 
@@ -124,7 +125,7 @@ export default function Navbar() {
                         <p className="font-mono text-2xs uppercase tracking-[0.22em] text-red">
                           Not listed?
                         </p>
-                        <p className="mt-3 font-display text-lg font-bold leading-snug">
+                        <p className="mt-3 font-display text-lg font-semibold leading-snug">
                           Tell us what you&apos;re building.
                         </p>
                         <p className="mt-2 text-xs text-paper/60">
@@ -173,10 +174,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="#contact" className="btn btn-ink">
-            Start Hiring
-            <span aria-hidden="true">→</span>
-          </Link>
+          <StartHiringButton variant="ink" />
         </div>
 
         {/* Mobile hamburger */}
@@ -198,7 +196,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="anim-fade-up fixed inset-x-0 bottom-0 top-[var(--rt-nav-h)] overflow-y-auto border-t border-line-soft bg-paper px-gutter pb-10 pt-6 lg:hidden">
           <button
-            className="flex w-full items-center justify-between py-4 text-left font-display text-xl font-bold"
+            className="flex w-full items-center justify-between py-4 text-left font-display text-xl font-semibold"
             aria-expanded={mobileTalents}
             onClick={() => setMobileTalents((v) => !v)}
           >
@@ -238,7 +236,7 @@ export default function Navbar() {
           )}
 
           <div className="divide-y divide-line-soft border-t border-line-soft">
-            <Link href="#how-we-work" onClick={closeAll} className="block py-4 font-display text-xl font-bold">
+            <Link href="#how-we-work" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               How we work
             </Link>
             <button
@@ -246,22 +244,19 @@ export default function Navbar() {
                 closeAll();
                 openPricing();
               }}
-              className="block w-full py-4 text-left font-display text-xl font-bold"
+              className="block w-full py-4 text-left font-display text-xl font-semibold"
             >
               Pricing
             </button>
-            <Link href="#about" onClick={closeAll} className="block py-4 font-display text-xl font-bold">
+            <Link href="#about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               About Us
             </Link>
-            <Link href="#contact" onClick={closeAll} className="block py-4 font-display text-xl font-bold">
+            <Link href="#contact" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               Contact
             </Link>
           </div>
 
-          <Link href="#contact" onClick={closeAll} className="btn btn-red mt-8 w-full">
-            Start Hiring
-            <span aria-hidden="true">→</span>
-          </Link>
+          <StartHiringButton variant="red" className="mt-8 w-full" onClick={closeAll} />
         </div>
       )}
     </header>

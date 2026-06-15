@@ -92,7 +92,7 @@ function PricingModal({ onClose }: { onClose: () => void }) {
             </p>
             <h2
               id="pricing-modal-title"
-              className="mt-4 font-display text-2xl font-bold tracking-tight text-ink"
+              className="mt-4 font-display text-2xl font-semibold tracking-tight text-ink"
             >
               Unlock Full Pricing Details
             </h2>
@@ -148,7 +148,7 @@ function PricingModal({ onClose }: { onClose: () => void }) {
                 <path d="M4 11.5l5 5L18 6" stroke="var(--rt-red)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <h2 className="mt-5 font-display text-2xl font-bold tracking-tight text-ink">
+            <h2 className="mt-5 font-display text-2xl font-semibold tracking-tight text-ink">
               Check your inbox
             </h2>
             <p className="mx-auto mt-3 max-w-sm text-sm text-ink-soft">

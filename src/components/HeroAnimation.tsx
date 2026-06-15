@@ -23,7 +23,7 @@ export default function HeroAnimation() {
             <p className="font-mono text-2xs uppercase tracking-[0.2em] text-ink-faint">
               Your brief
             </p>
-            <p className="mt-1.5 font-display text-lg font-bold text-ink">
+            <p className="mt-1.5 font-display text-lg font-semibold text-ink">
               Tell us who you need
             </p>
             <p className="mt-1 text-sm text-ink-soft">
@@ -41,7 +41,7 @@ export default function HeroAnimation() {
                 <p className="font-mono text-2xs uppercase tracking-[0.2em] text-ink-faint">
                   RemoteTalentz
                 </p>
-                <p className="mt-1.5 font-display text-lg font-bold text-ink">
+                <p className="mt-1.5 font-display text-lg font-semibold text-ink">
                   We vet &amp; match
                 </p>
                 <p className="mt-1 text-sm text-ink-soft">
@@ -78,7 +78,7 @@ export default function HeroAnimation() {
             <p className="font-mono text-2xs uppercase tracking-[0.2em] text-ink-faint">
               Your team
             </p>
-            <p className="mt-1.5 font-display text-lg font-bold text-ink">
+            <p className="mt-1.5 font-display text-lg font-semibold text-ink">
               Shipping within days
             </p>
             <div className="member-new mt-3 flex items-center gap-3 rounded-xl bg-red-tint px-3 py-2.5">
@@ -86,7 +86,7 @@ export default function HeroAnimation() {
                 ✓
               </span>
               <span>
-                <span className="block font-display text-sm font-bold text-ink">
+                <span className="block font-display text-sm font-semibold text-ink">
                   Your new engineer
                 </span>
                 <span className="block font-mono text-2xs text-red">
@@ -104,7 +104,7 @@ export default function HeroAnimation() {
 function StepNode({ n, className }: { n: string; className: string }) {
   return (
     <span
-      className={`step-node relative z-10 mt-4 grid size-12 shrink-0 place-items-center rounded-full font-display text-sm font-bold ${className}`}
+      className={`step-node relative z-10 mt-4 grid size-12 shrink-0 place-items-center rounded-full font-display text-sm font-semibold ${className}`}
     >
       {n}
     </span>

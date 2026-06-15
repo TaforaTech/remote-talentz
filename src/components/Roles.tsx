@@ -11,7 +11,7 @@ export default function Roles() {
             <span aria-hidden="true">✱</span> Find Talents
           </p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-3xl font-display text-4xl font-bold tracking-[-0.02em] text-ink">
+            <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
               Every role your roadmap needs — already vetted.
             </h2>
             <p className="max-w-md text-base text-ink-soft">
@@ -82,7 +82,7 @@ function RoleGroup({
                 {String(startIndex + i).padStart(2, "0")}
               </span>
               <span>
-                <span className="block font-display text-base font-bold leading-snug text-ink transition-colors group-hover:text-paper">
+                <span className="block font-display text-base font-semibold leading-snug text-ink transition-colors group-hover:text-paper">
                   {role.name}
                 </span>
                 <span className="mt-1.5 block text-2xs text-ink-soft transition-colors group-hover:text-paper/60">
