@@ -35,10 +35,10 @@ export default function Hero() {
             </p>
 
             <h1
-              className="anim-fade-up mt-6 font-display text-hero font-bold tracking-[-0.03em] text-ink lg:text-6xl"
+              className="anim-fade-up mt-6 font-display text-hero font-bold leading-[1.20] tracking-[-0.03em] text-ink lg:text-[clamp(2rem,3.1vw,3.5rem)]"
               style={{ animationDelay: "100ms" }}
             >
-              Hire Elite AI-Native Talents
+              <span className="lg:whitespace-nowrap">Hire Elite AI-Native Talents</span>
               <br />
               Save Up to 82%
             </h1>
