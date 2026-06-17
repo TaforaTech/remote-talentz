@@ -121,9 +121,9 @@ export default function Navbar() {
                     </div>
 
                     {/* Side CTA panel */}
-                    <div className="flex w-56 flex-col justify-between bg-ink p-7 text-paper">
+                    <div className="flex w-56 flex-col justify-between bg-[#F93B55] p-7 text-paper">
                       <div>
-                        <p className="font-mono text-2xs uppercase tracking-[0.22em] text-red">
+                        <p className="font-mono text-2xs uppercase tracking-[0.22em] text-white">
                           Not listed?
                         </p>
                         <p className="mt-3 font-display text-lg font-semibold leading-snug">
@@ -133,7 +133,7 @@ export default function Navbar() {
                           We source niche roles on request — usually within a week.
                         </p>
                       </div>
-                      <Link href="#contact" onClick={closeAll} className="btn btn-red mt-6 !px-5 !py-2.5">
+                      <Link href="#contact" onClick={closeAll} className="btn btn-paper mt-6 !px-5 !py-2.5">
                         Talk to us
                       </Link>
                     </div>
@@ -175,7 +175,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <StartHiringButton variant="ink" />
+          <StartHiringButton variant="red" />
         </div>
 
         {/* Mobile hamburger */}

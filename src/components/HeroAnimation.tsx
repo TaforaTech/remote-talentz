@@ -70,7 +70,7 @@ export default function HeroAnimation() {
         <li className="flex items-start gap-4">
           <StepNode n="3" className="step-3" />
           <div className="step-card step-3 relative flex-1 rounded-2xl border bg-paper-raised p-5">
-            <span className="match-badge absolute -top-3 right-5 rounded-full bg-red px-3 py-1 font-mono text-2xs uppercase tracking-[0.14em] text-white">
+            <span className="match-badge brand-grad absolute -top-3 right-5 rounded-full px-3 py-1 font-mono text-2xs uppercase tracking-[0.14em] text-white">
               Matched in 48h
             </span>
             <p className="font-mono text-2xs uppercase tracking-[0.2em] text-ink-faint">
@@ -80,7 +80,7 @@ export default function HeroAnimation() {
               Shipping within days
             </p>
             <div className="member-new mt-3 flex items-center gap-3 rounded-xl bg-red-tint px-3 py-2.5">
-              <span className="grid size-8 shrink-0 place-items-center rounded-full bg-red font-mono text-xs font-bold text-white">
+              <span className="brand-grad grid size-8 shrink-0 place-items-center rounded-full font-mono text-xs font-bold text-white">
                 ✓
               </span>
               <span>

@@ -47,7 +47,7 @@ export default function Hero() {
               className="anim-fade-up mt-7 text-base text-ink-soft"
               style={{ animationDelay: "220ms" }}
             >
-              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 85%. No upfront cost, pay only when you hire with replacement guarantee.
+              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 82%. No upfront cost, pay only when you hire with replacement guarantee.
             </p>
 
             <div

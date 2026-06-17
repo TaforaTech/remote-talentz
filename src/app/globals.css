@@ -29,6 +29,22 @@
     #fb2c3a 38%,
     #ff3040 50%
   );
+  /* Action-button gradient — the two logo brand colours. Mirrored (bright →
+     deep → bright) and oversized so a hover can sweep it via background-position
+     for a smooth sheen shift instead of a hard colour snap. */
+  --rt-grad-action: linear-gradient(
+    125deg,
+    #ff3040 0%,
+    #d60505 50%,
+    #ff3040 100%
+  );
+  /* Static 2-stop version of the action gradient — matches the buttons' resting
+     look. Used for small brand accents: the verified mark, badges, node rings. */
+  --rt-grad-brand: linear-gradient(125deg, #ff3040 0%, #d60505 100%);
+  --rt-shadow-action: 0 8px 20px -10px rgba(214, 5, 5, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --rt-shadow-action-hover: 0 14px 30px -10px rgba(255, 48, 64, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
 
   /* ---- Fluid type scale (min @ 375px → max @ 1440px) ----
      Single source of truth. Components only ever use
@@ -160,6 +176,11 @@ body {
   padding-inline: var(--rt-gutter);
 }
 
+/* Brand gradient fill for small accents (verified mark, badges). */
+.brand-grad {
+  background-image: var(--rt-grad-brand);
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--rt-step--2);
@@ -183,7 +204,8 @@ body {
   padding: 0.9em 1.7em;
   border-radius: 999px;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+  transition: background-color 0.25s ease, background-position 0.55s ease,
+    color 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease,
     transform 0.15s ease;
   white-space: nowrap;
 }
@@ -192,13 +214,16 @@ body {
 }
 
 .btn-red {
-  background: var(--rt-red);
+  background-image: var(--rt-grad-action);
+  background-size: 200% 100%;
+  background-position: 0% 0;
   color: #fff;
-  border: 1px solid var(--rt-red);
+  border: 1px solid transparent;
+  box-shadow: var(--rt-shadow-action);
 }
 .btn-red:hover {
-  background: var(--rt-red-deep);
-  border-color: var(--rt-red-deep);
+  background-position: 100% 0;
+  box-shadow: var(--rt-shadow-action-hover);
 }
 
 .btn-ink {
@@ -207,9 +232,13 @@ body {
   border: 1px solid var(--rt-ink);
 }
 .btn-ink:hover {
-  background: var(--rt-red);
-  border-color: var(--rt-red);
+  background-image: var(--rt-grad-action);
+  background-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  border-color: transparent;
   color: #fff;
+  box-shadow: var(--rt-shadow-action-hover);
 }
 
 .btn-ghost {
@@ -218,7 +247,8 @@ body {
   border: 1px solid var(--rt-line);
 }
 .btn-ghost:hover {
-  border-color: var(--rt-ink);
+  border-color: var(--rt-red);
+  color: var(--rt-red);
 }
 
 .btn-paper {
@@ -227,9 +257,13 @@ body {
   border: 1px solid var(--rt-paper);
 }
 .btn-paper:hover {
-  background: var(--rt-red);
-  border-color: var(--rt-red);
+  background-image: var(--rt-grad-action);
+  background-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  border-color: transparent;
   color: #fff;
+  box-shadow: var(--rt-shadow-action-hover);
 }
 
 .field-input {
@@ -399,30 +433,31 @@ body {
 }
 
 .step-node {
-  background: var(--rt-paper-raised);
-  border: 2px solid var(--rt-line);
+  /* Brand-gradient ring on the border via padding-box (interior) + border-box
+     (gradient) layering, since a border-color can't be a gradient. 4px = a
+     bold ring. */
+  background: linear-gradient(var(--rt-paper-raised), var(--rt-paper-raised))
+      padding-box,
+    var(--rt-grad-brand) border-box;
+  border: 4px solid transparent;
   color: var(--rt-ink-faint);
   animation: rt-step-node 9s ease-in-out infinite;
 }
 @keyframes rt-step-node {
   0%,
   30% {
-    /* Active: the logo's gradient ring. The gradient lives on the border via
-       padding-box (interior fill) + border-box (gradient) layering, because a
-       border-color cannot be a gradient. */
-    background: linear-gradient(
-          var(--rt-paper-raised),
-          var(--rt-paper-raised)
-        )
-        padding-box,
-      var(--rt-logo-gradient) border-box;
+    /* Active: the ring fills in with the brand gradient, white number. */
+    background: var(--rt-grad-brand) border-box;
     border-color: transparent;
-    color: var(--rt-red);
+    color: #fff;
   }
   36%,
   100% {
-    background: var(--rt-paper-raised);
-    border-color: var(--rt-line);
+    /* Resting: gradient ring, white interior, faint number. */
+    background: linear-gradient(var(--rt-paper-raised), var(--rt-paper-raised))
+        padding-box,
+      var(--rt-grad-brand) border-box;
+    border-color: transparent;
     color: var(--rt-ink-faint);
   }
 }
