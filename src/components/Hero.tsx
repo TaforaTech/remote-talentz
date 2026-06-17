@@ -17,7 +17,7 @@ export default function Hero() {
 
       {/* Fills the viewport on any screen; grows on short screens */}
       <div className="container-rt relative flex min-h-[calc(100svh-var(--rt-nav-h))] flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
-        <div className="grid grid-cols-1 items-center gap-x-2 gap-y-16 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid grid-cols-1 items-center gap-x-0 gap-y-16 lg:grid-cols-[1.15fr_0.85fr]">
           {/* Copy */}
           <div>
             <p className="eyebrow anim-fade-up">
@@ -52,7 +52,7 @@ export default function Hero() {
           </div>
 
           {/* Animated goal explainer: brief → vetting → embedded */}
-          <div className="anim-fade-up" style={{ animationDelay: "260ms" }}>
+          <div className="anim-fade-up lg:justify-self-end" style={{ animationDelay: "260ms" }}>
             <HeroAnimation />
           </div>
         </div>

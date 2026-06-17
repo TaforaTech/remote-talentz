@@ -42,6 +42,10 @@
      space flows symmetrically into the gutter — exactly nsave's behaviour. */
   --rt-gutter: clamp(1.125rem, 5.55vw, 7rem);
 
+  /* On laptops and larger the side gutter widens to a flat 10vw on each side
+     (20% of the viewport total). Tablet and mobile keep the clamp above — the
+     override lives in the @media (min-width: 1024px) rule below. */
+
   /* Max line/content width. Kept in rem (not px like nsave) so it scales with
      the root font-size bumps at ≥1920/2560/3840 — the page stays proportional
      on 4K instead of stranding a fixed 1710px block in an ocean of margin.
@@ -50,6 +54,14 @@
 
   --rt-section: clamp(4.5rem, 2.8rem + 7vw, 9rem);
   --rt-nav-h: clamp(4rem, 3.4rem + 1.6vw, 4.75rem);
+}
+
+/* Laptop and larger: 10% side margin on each edge (20% total). Tablet and
+   mobile are unaffected and keep the clamp defined in :root above. */
+@media (min-width: 1024px) {
+  :root {
+    --rt-gutter: 10vw;
+  }
 }
 
 @theme inline {
