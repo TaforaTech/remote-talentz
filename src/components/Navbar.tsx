@@ -97,7 +97,7 @@ export default function Navbar() {
                       <p className="eyebrow mb-5">
                         <LogoMark className="size-[0.85em]" /> Popular Roles
                       </p>
-                      <ul className="grid grid-cols-2 gap-x-6 gap-y-1">
+                      <ul className="grid grid-cols-1">
                         {popularRoles.map((role) => (
                           <li key={role.name}>
                             <MegaItem name={role.name} onNavigate={closeAll} />
@@ -109,9 +109,9 @@ export default function Navbar() {
                     {/* Emerging roles */}
                     <div className="p-7">
                       <p className="eyebrow mb-5">
-                        <LogoMark className="size-[0.85em]" /> Emerging AI &amp; Specialized Roles
+                        <LogoMark className="size-[0.85em]" /> Emerging AI Roles
                       </p>
-                      <ul className="grid grid-cols-1 gap-y-1">
+                      <ul className="grid grid-cols-1">
                         {emergingRoles.map((role) => (
                           <li key={role.name}>
                             <MegaItem name={role.name} onNavigate={closeAll} />
@@ -222,7 +222,7 @@ export default function Navbar() {
                 </ul>
               </div>
               <div>
-                <p className="eyebrow mb-3">Emerging AI &amp; Specialized Roles</p>
+                <p className="eyebrow mb-3">Emerging AI Roles</p>
                 <ul className="space-y-2.5">
                   {emergingRoles.map((r) => (
                     <li key={r.name}>
@@ -269,9 +269,9 @@ function MegaItem({ name, onNavigate }: { name: string; onNavigate: () => void }
     <Link
       href="#talent"
       onClick={onNavigate}
-      className="group flex items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-red-tint hover:text-red"
+      className="group flex items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-red-tint hover:text-red"
     >
-      <span>{name}</span>
+      <span className="whitespace-nowrap">{name}</span>
       <span
         aria-hidden="true"
         className="-translate-x-1 text-red opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100"

@@ -24,7 +24,7 @@ export default function Roles() {
 
         <RoleGroup title="Popular Roles" roles={popularRoles} startIndex={1} />
         <RoleGroup
-          title="Emerging AI & Specialized Roles"
+          title="Emerging AI Roles"
           roles={emergingRoles}
           startIndex={popularRoles.length + 1}
           accent

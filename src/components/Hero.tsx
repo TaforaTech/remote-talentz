@@ -1,12 +1,21 @@
 import Link from "next/link";
 import HeroAnimation from "./HeroAnimation";
-import LogoMark from "./LogoMark";
 import StartHiringButton from "./StartHiringButton";
-import { allRoles } from "@/lib/roles";
+// Used only by the temporarily-removed role ticker below:
+// import LogoMark from "./LogoMark";
+// import { allRoles } from "@/lib/roles";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-nav">
+    <section
+      className="relative overflow-hidden pt-nav"
+      style={{
+        background:
+          "radial-gradient(90% 70% at 85% -10%, rgba(227, 0, 27, 0.18), transparent 55%)," +
+          "radial-gradient(80% 65% at 0% 115%, rgba(227, 0, 27, 0.1), transparent 55%)," +
+          "linear-gradient(180deg, #fff2ef 0%, var(--rt-paper) 60%)",
+      }}
+    >
       {/* Oversized watermark asterisk */}
       {/* <div
         aria-hidden="true"
@@ -59,8 +68,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Role ticker */}
-      <div className="border-y border-line bg-ink py-3.5" aria-hidden="true">
+      {/* Role ticker — temporarily removed
+      <div className="border-y border-white/20 bg-ink/45 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-xl" aria-hidden="true">
         <div className="flex overflow-hidden">
           <div className="ticker-track flex shrink-0 items-center">
             {[0, 1].map((copy) => (
@@ -79,6 +88,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 }
