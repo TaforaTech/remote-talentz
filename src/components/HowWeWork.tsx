@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import LogoMark from "./LogoMark";
 
 const STEPS = [
   {
@@ -40,7 +41,7 @@ export default function HowWeWork() {
       <div className="container-rt">
         <Reveal>
           <p className="eyebrow">
-            <span aria-hidden="true">✱</span> How we work
+            <LogoMark className="size-[0.85em]" /> How we work
           </p>
           <h2 className="mt-5 max-w-3xl font-display text-4xl font-semibold tracking-[-0.02em]">
             From brief to embedded engineer in{" "}
@@ -74,9 +75,7 @@ export default function HowWeWork() {
           <ul className="flex flex-wrap gap-x-8 gap-y-3">
             {VETTING.map((item) => (
               <li key={item} className="flex items-center gap-2.5 text-sm text-paper/75">
-                <span className="text-red" aria-hidden="true">
-                  ✱
-                </span>
+                <LogoMark className="size-[0.9em]" />
                 {item}
               </li>
             ))}

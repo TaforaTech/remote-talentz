@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
+import LogoMark from "./LogoMark";
 import StartHiringButton from "./StartHiringButton";
 import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
@@ -94,7 +95,7 @@ export default function Navbar() {
                     {/* Popular roles */}
                     <div className="border-r border-line-soft p-7">
                       <p className="eyebrow mb-5">
-                        <span aria-hidden="true">✱</span> Popular Roles
+                        <LogoMark className="size-[0.85em]" /> Popular Roles
                       </p>
                       <ul className="grid grid-cols-2 gap-x-6 gap-y-1">
                         {popularRoles.map((role) => (
@@ -108,7 +109,7 @@ export default function Navbar() {
                     {/* Emerging roles */}
                     <div className="p-7">
                       <p className="eyebrow mb-5">
-                        <span aria-hidden="true">✱</span> Emerging AI &amp; Specialized Roles
+                        <LogoMark className="size-[0.85em]" /> Emerging AI &amp; Specialized Roles
                       </p>
                       <ul className="grid grid-cols-1 gap-y-1">
                         {emergingRoles.map((role) => (

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroAnimation from "./HeroAnimation";
+import LogoMark from "./LogoMark";
 import StartHiringButton from "./StartHiringButton";
 import { allRoles } from "@/lib/roles";
 
@@ -70,7 +71,7 @@ export default function Hero() {
                     className="flex items-center gap-6 px-6 font-display text-sm font-semibold uppercase tracking-[0.14em] text-paper/80"
                   >
                     {role.name}
-                    <span className="text-red">✱</span>
+                    <LogoMark className="size-[0.8em]" />
                   </span>
                 ))}
               </div>

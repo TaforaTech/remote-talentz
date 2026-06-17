@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Reveal from "./Reveal";
 import StartHiringButton from "./StartHiringButton";
+import LogoMark from "./LogoMark";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -12,7 +13,7 @@ export default function Contact() {
       <div className="container-rt grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
           <p className="eyebrow">
-            <span aria-hidden="true">✱</span> Contact
+            <LogoMark className="size-[0.85em]" /> Contact
           </p>
           <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
             Tell us who

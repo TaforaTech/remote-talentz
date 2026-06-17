@@ -19,6 +19,16 @@
   --rt-red: #e3001b;
   --rt-red-deep: #b40015;
   --rt-red-tint: #fdeeea;
+  /* The logo's ring gradient, as a CSS gradient (the LogoMark SVG carries its
+     own copy). Angle ≈ the logo's left→right, slightly-down sweep. */
+  --rt-logo-gradient: linear-gradient(
+    110deg,
+    #d60505 0%,
+    #dc0b0d 4%,
+    #ef1f29 22%,
+    #fb2c3a 38%,
+    #ff3040 50%
+  );
 
   /* ---- Fluid type scale (min @ 375px → max @ 1440px) ----
      Single source of truth. Components only ever use
@@ -357,16 +367,18 @@ body {
    (delays 0s / 3s / 6s); the connecting line flows continuously. */
 @keyframes rt-flow {
   to {
-    stroke-dashoffset: -56;
+    /* must stay a whole multiple of the dash cycle (0.5 + 2 = 2.5) so the
+       loop seam is invisible — 50 = 20 cycles */
+    stroke-dashoffset: -50;
   }
 }
 .flow-line {
   stroke: var(--rt-red);
-  stroke-width: 2;
-  stroke-dasharray: 5 9;
+  stroke-width: 1.2;
+  stroke-dasharray: 0.5 2;
   stroke-linecap: round;
   opacity: 0.5;
-  animation: rt-flow 1.5s linear infinite;
+  animation: rt-flow 3.5s linear infinite;
 }
 
 .step-card {
@@ -388,16 +400,24 @@ body {
 
 .step-node {
   background: var(--rt-paper-raised);
-  border: 1px solid var(--rt-line);
+  border: 2px solid var(--rt-line);
   color: var(--rt-ink-faint);
   animation: rt-step-node 9s ease-in-out infinite;
 }
 @keyframes rt-step-node {
   0%,
   30% {
-    background: var(--rt-red);
-    border-color: var(--rt-red);
-    color: #fff;
+    /* Active: the logo's gradient ring. The gradient lives on the border via
+       padding-box (interior fill) + border-box (gradient) layering, because a
+       border-color cannot be a gradient. */
+    background: linear-gradient(
+          var(--rt-paper-raised),
+          var(--rt-paper-raised)
+        )
+        padding-box,
+      var(--rt-logo-gradient) border-box;
+    border-color: transparent;
+    color: var(--rt-red);
   }
   36%,
   100% {

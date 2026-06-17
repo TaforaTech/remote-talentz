@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import LogoMark from "./LogoMark";
 
 const QUOTES = [
   {
@@ -34,7 +35,7 @@ export default function About() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow">
-              <span aria-hidden="true">✱</span> About Us
+              <LogoMark className="size-[0.85em]" /> About Us
             </p>
             <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
               A network,
