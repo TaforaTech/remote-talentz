@@ -548,6 +548,75 @@ body {
   animation: rt-badge 9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
 }
 
+/* ---- Global talent bridge map (US ↔ Bangladesh) ----
+   The injected amCharts world SVG is restyled to our palette: faint ink
+   landmasses, Bangladesh filled red, the US subtly raised. */
+.rt-map svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* Dark "network" theme: pale continents glowing on a near-black panel. */
+.rt-map .land {
+  fill: #ffffff;
+  fill-opacity: 0.13;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 0.5;
+  transition: fill-opacity 0.3s ease;
+}
+.rt-map #US {
+  fill: #ffffff;
+  fill-opacity: 0.3;
+}
+.rt-map #BD {
+  fill: var(--rt-red);
+  fill-opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(255, 48, 64, 0.95))
+    drop-shadow(0 0 12px rgba(255, 48, 64, 0.6));
+}
+
+/* Arc draws itself in once the map scrolls into view (pathLength normalized to 1) */
+.talent-arc {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.rt-map-live .talent-arc {
+  animation: rt-arc-draw 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.15s forwards;
+}
+@keyframes rt-arc-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Endpoint pulse rings — scale around each node's own centre */
+.talent-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rt-node-ping 2.6s ease-out infinite;
+}
+@keyframes rt-node-ping {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rt-map-live .talent-arc {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .talent-ping {
+    animation: none;
+  }
+}
+
 /* Paper grain for atmosphere */
 .grain::before {
   content: "";

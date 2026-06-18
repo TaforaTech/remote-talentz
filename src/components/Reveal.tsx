@@ -21,7 +21,12 @@ export default function Reveal({
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
+          // Reveal when the element scrolls into view, OR when it's already
+          // at/above the viewport top — a fast scroll, reload scroll-restore,
+          // or anchor jump can skip the element past the observer without ever
+          // reporting it as intersecting, which would otherwise leave it stuck
+          // permanently hidden.
+          if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
             entry.target.classList.add("is-visible");
             io.unobserve(entry.target);
           }
