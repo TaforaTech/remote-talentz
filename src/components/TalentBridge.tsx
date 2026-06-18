@@ -71,7 +71,7 @@ export default function TalentBridge() {
   }, [ready]);
 
   return (
-    <section className="relative overflow-hidden py-[clamp(1.75rem,1rem+2.6vw,3.25rem)]">
+    <section className="relative overflow-hidden pt-[clamp(1.75rem,1rem+2.6vw,3.25rem)]">
       {/* Atmospheric wash */}
       <div
         aria-hidden
