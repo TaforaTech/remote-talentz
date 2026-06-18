@@ -8,7 +8,7 @@ type Props = {
   size?: ButtonSize;
   /** Extra utility classes (layout, margins, width). */
   className?: string;
-  /** Render as a form submit button instead of a link to #contact. */
+  /** Render as a form submit button instead of a link to /contact. */
   type?: "link" | "submit";
   onClick?: () => void;
 };
@@ -32,7 +32,7 @@ export default function StartHiringButton({
   }
 
   return (
-    <Link href="#contact" className={classes} onClick={onClick}>
+    <Link href="/contact" className={classes} onClick={onClick}>
       Start Hiring
     </Link>
   );

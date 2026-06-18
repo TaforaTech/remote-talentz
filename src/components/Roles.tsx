@@ -37,7 +37,7 @@ export default function Roles() {
               We source niche roles on request.
             </span>
           </p>
-          <Link href="#contact" className="btn btn-ink shrink-0">
+          <Link href="/contact" className="btn btn-ink shrink-0">
             Request a role
             <span aria-hidden="true">→</span>
           </Link>
@@ -76,7 +76,7 @@ function RoleGroup({
         {roles.map((role, i) => (
           <Reveal as="li" key={role.name} delay={Math.min(i * 40, 280)}>
             <Link
-              href="#contact"
+              href="/contact"
               className="group flex h-full flex-col justify-between gap-8 bg-paper-raised p-5 transition-colors duration-300 hover:bg-ink"
             >
               <span className="font-mono text-2xs text-ink-faint transition-colors group-hover:text-red">

@@ -9,9 +9,9 @@ import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
 
 const NAV_LINKS = [
-  { label: "How we work", href: "#how-we-work" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "How we work", href: "/#how-we-work" },
+  { label: "About Us", href: "/#about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -133,7 +133,7 @@ export default function Navbar() {
                           We source niche roles on request — usually within a week.
                         </p>
                       </div>
-                      <Link href="#contact" onClick={closeAll} className="btn btn-paper mt-6 !px-5 !py-2.5">
+                      <Link href="/contact" onClick={closeAll} className="btn btn-paper mt-6 !px-5 !py-2.5">
                         Talk to us
                       </Link>
                     </div>
@@ -144,7 +144,7 @@ export default function Navbar() {
                       Every engineer is vetted across technical depth, live builds &amp; communication.
                     </p>
                     <Link
-                      href="#talent"
+                      href="/#talent"
                       onClick={closeAll}
                       className="group inline-flex items-center gap-1.5 text-xs font-semibold text-ink transition-colors hover:text-red"
                     >
@@ -214,7 +214,7 @@ export default function Navbar() {
                 <ul className="space-y-2.5">
                   {popularRoles.map((r) => (
                     <li key={r.name}>
-                      <Link href="#talent" onClick={closeAll} className="text-base text-ink-soft transition-colors hover:text-red">
+                      <Link href="/#talent" onClick={closeAll} className="text-base text-ink-soft transition-colors hover:text-red">
                         {r.name}
                       </Link>
                     </li>
@@ -226,7 +226,7 @@ export default function Navbar() {
                 <ul className="space-y-2.5">
                   {emergingRoles.map((r) => (
                     <li key={r.name}>
-                      <Link href="#talent" onClick={closeAll} className="text-base text-ink-soft transition-colors hover:text-red">
+                      <Link href="/#talent" onClick={closeAll} className="text-base text-ink-soft transition-colors hover:text-red">
                         {r.name}
                       </Link>
                     </li>
@@ -237,7 +237,7 @@ export default function Navbar() {
           )}
 
           <div className="divide-y divide-line-soft border-t border-line-soft">
-            <Link href="#how-we-work" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
+            <Link href="/#how-we-work" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               How we work
             </Link>
             <button
@@ -249,10 +249,10 @@ export default function Navbar() {
             >
               Pricing
             </button>
-            <Link href="#about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
+            <Link href="/#about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               About Us
             </Link>
-            <Link href="#contact" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
+            <Link href="/contact" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               Contact
             </Link>
           </div>
@@ -267,7 +267,7 @@ export default function Navbar() {
 function MegaItem({ name, onNavigate }: { name: string; onNavigate: () => void }) {
   return (
     <Link
-      href="#talent"
+      href="/#talent"
       onClick={onNavigate}
       className="group flex items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-red-tint hover:text-red"
     >

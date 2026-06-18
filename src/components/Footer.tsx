@@ -35,13 +35,13 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {ROLE_LINKS.map((r) => (
                 <li key={r}>
-                  <Link href="#talent" className="text-sm text-paper/70 transition-colors hover:text-paper">
+                  <Link href="/#talent" className="text-sm text-paper/70 transition-colors hover:text-paper">
                     {r}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="#talent" className="text-sm font-semibold text-paper transition-colors hover:text-red">
+                <Link href="/#talent" className="text-sm font-semibold text-paper transition-colors hover:text-red">
                   All roles →
                 </Link>
               </li>
@@ -54,7 +54,7 @@ export default function Footer() {
             </p>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <Link href="#how-we-work" className="text-sm text-paper/70 transition-colors hover:text-paper">
+                <Link href="/#how-we-work" className="text-sm text-paper/70 transition-colors hover:text-paper">
                   How we work
                 </Link>
               </li>
@@ -64,12 +64,12 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <Link href="#about" className="text-sm text-paper/70 transition-colors hover:text-paper">
+                <Link href="/#about" className="text-sm text-paper/70 transition-colors hover:text-paper">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-sm text-paper/70 transition-colors hover:text-paper">
+                <Link href="/contact" className="text-sm text-paper/70 transition-colors hover:text-paper">
                   Contact
                 </Link>
               </li>

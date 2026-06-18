@@ -7,7 +7,6 @@ import Roles from "@/components/Roles";
 import HowWeWork from "@/components/HowWeWork";
 import PricingBand from "@/components/PricingBand";
 import About from "@/components/About";
-import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <HowWeWork />
       <PricingBand />
       <About />
-      <Contact />
     </>
   );
 }
