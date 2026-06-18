@@ -181,6 +181,16 @@ body {
   background-image: var(--rt-grad-brand);
 }
 
+/* Red brand gradient applied to text (headline accents, stat figures). */
+.text-grad-red {
+  background-image: var(--rt-grad-action);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--rt-step--2);
