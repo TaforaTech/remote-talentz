@@ -171,13 +171,13 @@ export default function TalentBridge() {
                   <path
                     d={ARC}
                     stroke="#ff3040"
-                    strokeWidth="7"
-                    strokeOpacity="0.5"
+                    strokeWidth="4"
+                    strokeOpacity="0.4"
                     strokeLinecap="round"
                     filter="url(#arcNeon)"
                   />
                   {/* Faint full route beneath the animated one */}
-                  <path d={ARC} stroke="#ff3040" strokeOpacity="0.22" strokeWidth="1.4" />
+                  <path d={ARC} stroke="#ff3040" strokeOpacity="0.2" strokeWidth="0.9" />
                   {/* Animated draw-in route */}
                   <path
                     id="talentArcPath"
@@ -185,7 +185,7 @@ export default function TalentBridge() {
                     d={ARC}
                     pathLength={1}
                     stroke="url(#talentGrad)"
-                    strokeWidth="2.6"
+                    strokeWidth="1.5"
                     strokeLinecap="round"
                     filter="url(#talentGlow)"
                   />
