@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import LogoMark from "./LogoMark";
 
 type PricingContextValue = {
   openPricing: () => void;
@@ -167,7 +168,7 @@ function PricingModal({ onClose }: { onClose: () => void }) {
 }
 
 function Asterisk() {
-  return <span aria-hidden="true">✱</span>;
+  return <LogoMark className="size-[0.85em]" />;
 }
 
 function Arrow() {

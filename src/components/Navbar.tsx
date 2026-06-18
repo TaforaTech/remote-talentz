@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
+import LogoMark from "./LogoMark";
 import StartHiringButton from "./StartHiringButton";
 import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
@@ -94,9 +95,9 @@ export default function Navbar() {
                     {/* Popular roles */}
                     <div className="border-r border-line-soft p-7">
                       <p className="eyebrow mb-5">
-                        <span aria-hidden="true">✱</span> Popular Roles
+                        <LogoMark className="size-[0.85em]" /> Popular Roles
                       </p>
-                      <ul className="grid grid-cols-2 gap-x-6 gap-y-1">
+                      <ul className="grid grid-cols-1">
                         {popularRoles.map((role) => (
                           <li key={role.name}>
                             <MegaItem name={role.name} onNavigate={closeAll} />
@@ -108,9 +109,9 @@ export default function Navbar() {
                     {/* Emerging roles */}
                     <div className="p-7">
                       <p className="eyebrow mb-5">
-                        <span aria-hidden="true">✱</span> Emerging AI &amp; Specialized Roles
+                        <LogoMark className="size-[0.85em]" /> Emerging AI Roles
                       </p>
-                      <ul className="grid grid-cols-1 gap-y-1">
+                      <ul className="grid grid-cols-1">
                         {emergingRoles.map((role) => (
                           <li key={role.name}>
                             <MegaItem name={role.name} onNavigate={closeAll} />
@@ -120,9 +121,9 @@ export default function Navbar() {
                     </div>
 
                     {/* Side CTA panel */}
-                    <div className="flex w-56 flex-col justify-between bg-ink p-7 text-paper">
+                    <div className="flex w-56 flex-col justify-between bg-[#F93B55] p-7 text-paper">
                       <div>
-                        <p className="font-mono text-2xs uppercase tracking-[0.22em] text-red">
+                        <p className="font-mono text-2xs uppercase tracking-[0.22em] text-white">
                           Not listed?
                         </p>
                         <p className="mt-3 font-display text-lg font-semibold leading-snug">
@@ -132,7 +133,7 @@ export default function Navbar() {
                           We source niche roles on request — usually within a week.
                         </p>
                       </div>
-                      <Link href="#contact" onClick={closeAll} className="btn btn-red mt-6 !px-5 !py-2.5">
+                      <Link href="#contact" onClick={closeAll} className="btn btn-paper mt-6 !px-5 !py-2.5">
                         Talk to us
                       </Link>
                     </div>
@@ -174,7 +175,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <StartHiringButton variant="ink" />
+          <StartHiringButton variant="red" />
         </div>
 
         {/* Mobile hamburger */}
@@ -221,7 +222,7 @@ export default function Navbar() {
                 </ul>
               </div>
               <div>
-                <p className="eyebrow mb-3">Emerging AI &amp; Specialized Roles</p>
+                <p className="eyebrow mb-3">Emerging AI Roles</p>
                 <ul className="space-y-2.5">
                   {emergingRoles.map((r) => (
                     <li key={r.name}>
@@ -268,9 +269,9 @@ function MegaItem({ name, onNavigate }: { name: string; onNavigate: () => void }
     <Link
       href="#talent"
       onClick={onNavigate}
-      className="group flex items-center justify-between gap-2 rounded-lg px-2.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-red-tint hover:text-red"
+      className="group flex items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:bg-red-tint hover:text-red"
     >
-      <span>{name}</span>
+      <span className="whitespace-nowrap">{name}</span>
       <span
         aria-hidden="true"
         className="-translate-x-1 text-red opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100"

@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import LogoMark from "./LogoMark";
 import { usePricing } from "./PricingModal";
 
 const MODELS = [
@@ -29,7 +30,7 @@ export default function PricingBand() {
       <div className="container-rt">
         <Reveal>
           <p className="eyebrow">
-            <span aria-hidden="true">✱</span> Pricing
+            <LogoMark className="size-[0.85em]" /> Pricing
           </p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <h2 className="max-w-2xl font-display text-4xl font-semibold tracking-[-0.02em] text-ink">

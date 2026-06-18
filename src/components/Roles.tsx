@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
+import LogoMark from "./LogoMark";
 import { popularRoles, emergingRoles, type Role } from "@/lib/roles";
 
 export default function Roles() {
@@ -8,7 +9,7 @@ export default function Roles() {
       <div className="container-rt">
         <Reveal>
           <p className="eyebrow">
-            <span aria-hidden="true">✱</span> Find Talents
+            <LogoMark className="size-[0.85em]" /> Find Talents
           </p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <h2 className="max-w-3xl font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
@@ -23,7 +24,7 @@ export default function Roles() {
 
         <RoleGroup title="Popular Roles" roles={popularRoles} startIndex={1} />
         <RoleGroup
-          title="Emerging AI & Specialized Roles"
+          title="Emerging AI Roles"
           roles={emergingRoles}
           startIndex={popularRoles.length + 1}
           accent

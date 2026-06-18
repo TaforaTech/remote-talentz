@@ -1,11 +1,21 @@
 import Link from "next/link";
 import HeroAnimation from "./HeroAnimation";
 import StartHiringButton from "./StartHiringButton";
-import { allRoles } from "@/lib/roles";
+// Used only by the temporarily-removed role ticker below:
+// import LogoMark from "./LogoMark";
+// import { allRoles } from "@/lib/roles";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-nav">
+    <section
+      className="relative overflow-hidden pt-nav"
+      style={{
+        background:
+          "radial-gradient(90% 70% at 85% -10%, rgba(227, 0, 27, 0.18), transparent 55%)," +
+          "radial-gradient(80% 65% at 0% 115%, rgba(227, 0, 27, 0.1), transparent 55%)," +
+          "linear-gradient(180deg, #fff2ef 0%, var(--rt-paper) 60%)",
+      }}
+    >
       {/* Oversized watermark asterisk */}
       {/* <div
         aria-hidden="true"
@@ -17,7 +27,7 @@ export default function Hero() {
 
       {/* Fills the viewport on any screen; grows on short screens */}
       <div className="container-rt relative flex min-h-[calc(100svh-var(--rt-nav-h))] flex-col justify-center py-[clamp(2.5rem,5vh,5rem)]">
-        <div className="grid grid-cols-1 items-center gap-x-2 gap-y-16 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid grid-cols-1 items-center gap-x-0 gap-y-16 lg:grid-cols-[1.15fr_0.85fr]">
           {/* Copy */}
           <div>
             <p className="eyebrow anim-fade-up">
@@ -25,10 +35,10 @@ export default function Hero() {
             </p>
 
             <h1
-              className="anim-fade-up mt-6 font-display text-hero font-bold tracking-[-0.03em] text-ink lg:text-6xl"
+              className="anim-fade-up mt-6 font-display text-hero font-bold leading-[1.20] tracking-[-0.03em] text-ink lg:text-[clamp(2rem,3.1vw,3.5rem)]"
               style={{ animationDelay: "100ms" }}
             >
-              Hire Elite AI-Native Talents
+              <span className="lg:whitespace-nowrap">Hire Elite AI-Native Talents</span>
               <br />
               Save Up to 82%
             </h1>
@@ -37,7 +47,7 @@ export default function Hero() {
               className="anim-fade-up mt-7 text-base text-ink-soft"
               style={{ animationDelay: "220ms" }}
             >
-              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 85%. No upfront cost, pay only when you hire with replacement guarantee.
+              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 82%. No upfront cost, pay only when you hire with replacement guarantee.
             </p>
 
             <div
@@ -52,14 +62,14 @@ export default function Hero() {
           </div>
 
           {/* Animated goal explainer: brief → vetting → embedded */}
-          <div className="anim-fade-up" style={{ animationDelay: "260ms" }}>
+          <div className="anim-fade-up lg:justify-self-end" style={{ animationDelay: "260ms" }}>
             <HeroAnimation />
           </div>
         </div>
       </div>
 
-      {/* Role ticker */}
-      <div className="border-y border-line bg-ink py-3.5" aria-hidden="true">
+      {/* Role ticker — temporarily removed
+      <div className="border-y border-white/20 bg-ink/45 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-xl" aria-hidden="true">
         <div className="flex overflow-hidden">
           <div className="ticker-track flex shrink-0 items-center">
             {[0, 1].map((copy) => (
@@ -70,7 +80,7 @@ export default function Hero() {
                     className="flex items-center gap-6 px-6 font-display text-sm font-semibold uppercase tracking-[0.14em] text-paper/80"
                   >
                     {role.name}
-                    <span className="text-red">✱</span>
+                    <LogoMark className="size-[0.8em]" />
                   </span>
                 ))}
               </div>
@@ -78,6 +88,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 }

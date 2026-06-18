@@ -19,6 +19,32 @@
   --rt-red: #e3001b;
   --rt-red-deep: #b40015;
   --rt-red-tint: #fdeeea;
+  /* The logo's ring gradient, as a CSS gradient (the LogoMark SVG carries its
+     own copy). Angle ≈ the logo's left→right, slightly-down sweep. */
+  --rt-logo-gradient: linear-gradient(
+    110deg,
+    #d60505 0%,
+    #dc0b0d 4%,
+    #ef1f29 22%,
+    #fb2c3a 38%,
+    #ff3040 50%
+  );
+  /* Action-button gradient — the two logo brand colours. Mirrored (bright →
+     deep → bright) and oversized so a hover can sweep it via background-position
+     for a smooth sheen shift instead of a hard colour snap. */
+  --rt-grad-action: linear-gradient(
+    125deg,
+    #ff3040 0%,
+    #d60505 50%,
+    #ff3040 100%
+  );
+  /* Static 2-stop version of the action gradient — matches the buttons' resting
+     look. Used for small brand accents: the verified mark, badges, node rings. */
+  --rt-grad-brand: linear-gradient(125deg, #ff3040 0%, #d60505 100%);
+  --rt-shadow-action: 0 8px 20px -10px rgba(214, 5, 5, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --rt-shadow-action-hover: 0 14px 30px -10px rgba(255, 48, 64, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
 
   /* ---- Fluid type scale (min @ 375px → max @ 1440px) ----
      Single source of truth. Components only ever use
@@ -42,6 +68,10 @@
      space flows symmetrically into the gutter — exactly nsave's behaviour. */
   --rt-gutter: clamp(1.125rem, 5.55vw, 7rem);
 
+  /* On laptops and larger the side gutter widens to a flat 10vw on each side
+     (20% of the viewport total). Tablet and mobile keep the clamp above — the
+     override lives in the @media (min-width: 1024px) rule below. */
+
   /* Max line/content width. Kept in rem (not px like nsave) so it scales with
      the root font-size bumps at ≥1920/2560/3840 — the page stays proportional
      on 4K instead of stranding a fixed 1710px block in an ocean of margin.
@@ -50,6 +80,14 @@
 
   --rt-section: clamp(4.5rem, 2.8rem + 7vw, 9rem);
   --rt-nav-h: clamp(4rem, 3.4rem + 1.6vw, 4.75rem);
+}
+
+/* Laptop and larger: 10% side margin on each edge (20% total). Tablet and
+   mobile are unaffected and keep the clamp defined in :root above. */
+@media (min-width: 1024px) {
+  :root {
+    --rt-gutter: 10vw;
+  }
 }
 
 @theme inline {
@@ -138,6 +176,11 @@ body {
   padding-inline: var(--rt-gutter);
 }
 
+/* Brand gradient fill for small accents (verified mark, badges). */
+.brand-grad {
+  background-image: var(--rt-grad-brand);
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--rt-step--2);
@@ -161,7 +204,8 @@ body {
   padding: 0.9em 1.7em;
   border-radius: 999px;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease,
+  transition: background-color 0.25s ease, background-position 0.55s ease,
+    color 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease,
     transform 0.15s ease;
   white-space: nowrap;
 }
@@ -170,13 +214,16 @@ body {
 }
 
 .btn-red {
-  background: var(--rt-red);
+  background-image: var(--rt-grad-action);
+  background-size: 200% 100%;
+  background-position: 0% 0;
   color: #fff;
-  border: 1px solid var(--rt-red);
+  border: 1px solid transparent;
+  box-shadow: var(--rt-shadow-action);
 }
 .btn-red:hover {
-  background: var(--rt-red-deep);
-  border-color: var(--rt-red-deep);
+  background-position: 100% 0;
+  box-shadow: var(--rt-shadow-action-hover);
 }
 
 .btn-ink {
@@ -185,9 +232,13 @@ body {
   border: 1px solid var(--rt-ink);
 }
 .btn-ink:hover {
-  background: var(--rt-red);
-  border-color: var(--rt-red);
+  background-image: var(--rt-grad-action);
+  background-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  border-color: transparent;
   color: #fff;
+  box-shadow: var(--rt-shadow-action-hover);
 }
 
 .btn-ghost {
@@ -196,7 +247,8 @@ body {
   border: 1px solid var(--rt-line);
 }
 .btn-ghost:hover {
-  border-color: var(--rt-ink);
+  border-color: var(--rt-red);
+  color: var(--rt-red);
 }
 
 .btn-paper {
@@ -205,9 +257,13 @@ body {
   border: 1px solid var(--rt-paper);
 }
 .btn-paper:hover {
-  background: var(--rt-red);
-  border-color: var(--rt-red);
+  background-image: var(--rt-grad-action);
+  background-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  border-color: transparent;
   color: #fff;
+  box-shadow: var(--rt-shadow-action-hover);
 }
 
 .field-input {
@@ -345,16 +401,18 @@ body {
    (delays 0s / 3s / 6s); the connecting line flows continuously. */
 @keyframes rt-flow {
   to {
-    stroke-dashoffset: -56;
+    /* must stay a whole multiple of the dash cycle (0.5 + 2 = 2.5) so the
+       loop seam is invisible — 50 = 20 cycles */
+    stroke-dashoffset: -50;
   }
 }
 .flow-line {
   stroke: var(--rt-red);
-  stroke-width: 2;
-  stroke-dasharray: 5 9;
+  stroke-width: 1.2;
+  stroke-dasharray: 0.5 2;
   stroke-linecap: round;
   opacity: 0.5;
-  animation: rt-flow 1.5s linear infinite;
+  animation: rt-flow 3.5s linear infinite;
 }
 
 .step-card {
@@ -375,22 +433,31 @@ body {
 }
 
 .step-node {
-  background: var(--rt-paper-raised);
-  border: 1px solid var(--rt-line);
+  /* Brand-gradient ring on the border via padding-box (interior) + border-box
+     (gradient) layering, since a border-color can't be a gradient. 4px = a
+     bold ring. */
+  background: linear-gradient(var(--rt-paper-raised), var(--rt-paper-raised))
+      padding-box,
+    var(--rt-grad-brand) border-box;
+  border: 4px solid transparent;
   color: var(--rt-ink-faint);
   animation: rt-step-node 9s ease-in-out infinite;
 }
 @keyframes rt-step-node {
   0%,
   30% {
-    background: var(--rt-red);
-    border-color: var(--rt-red);
+    /* Active: the ring fills in with the brand gradient, white number. */
+    background: var(--rt-grad-brand) border-box;
+    border-color: transparent;
     color: #fff;
   }
   36%,
   100% {
-    background: var(--rt-paper-raised);
-    border-color: var(--rt-line);
+    /* Resting: gradient ring, white interior, faint number. */
+    background: linear-gradient(var(--rt-paper-raised), var(--rt-paper-raised))
+        padding-box,
+      var(--rt-grad-brand) border-box;
+    border-color: transparent;
     color: var(--rt-ink-faint);
   }
 }
