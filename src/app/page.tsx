@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Proof from "@/components/Proof";
 import Stats from "@/components/Stats";
 import Clients from "@/components/Clients";
 import Roles from "@/components/Roles";
@@ -12,7 +13,8 @@ export default function Home() {
     <>
       <Hero />
       <Clients />
-      <Stats />
+      <Proof />
+      {/* <Stats /> */}
       <Roles />
       <HowWeWork />
       <PricingBand />
