@@ -45,7 +45,8 @@ const DESTS: Dest[] = [
   { id: "GB", label: "England", x: 462, y: 278, pos: "left", delay: 1.55, bow: -0.26 },
   { id: "DE", label: "Germany", x: 506, y: 296, pos: "left", delay: 1.35, bow: -0.18 },
   { id: "TR", label: "Türkiye", x: 575, y: 345, pos: "below", delay: 1.15, bow: -0.12 },
-  { id: "AU", label: "Australia", x: 849, y: 546, pos: "above", delay: 0.35, bow: -0.2 },
+  { id: "SG", label: "Singapore", x: 770, y: 463, pos: "below", delay: 0.75, bow: 0.25 },
+  { id: "AU", label: "Australia", x: 849, y: 546, pos: "below", delay: 0.35, bow: -0.2 },
   { id: "NZ", label: "New Zealand", x: 959, y: 588, pos: "left", delay: 0.55, bow: -0.36 },
 ];
 
