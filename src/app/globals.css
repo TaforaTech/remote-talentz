@@ -369,6 +369,59 @@ body {
   }
 }
 
+/* Slow, soft ambient breathing for the CTA glow blobs */
+@keyframes rt-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.12);
+  }
+}
+.cta-glow {
+  animation: rt-glow 7s ease-in-out infinite;
+}
+
+/* Smart diagonal light sweep gliding across the panel */
+@keyframes rt-sweep {
+  0% {
+    transform: translateX(-160%) skewX(-14deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(260%) skewX(-14deg);
+    opacity: 0;
+  }
+}
+.cta-sweep {
+  animation: rt-sweep 8.5s ease-in-out infinite;
+}
+
+/* Light sweeping through the gradient headline accent */
+@keyframes rt-text-sheen {
+  to {
+    background-position: 200% 0;
+  }
+}
+.cta-sheen {
+  background-image: var(--rt-grad-action);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: rt-text-sheen 5s linear infinite;
+}
+
 .anim-fade-up {
   animation: rt-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -695,7 +748,10 @@ body {
   .step-card,
   .step-node,
   .member-new,
-  .match-badge {
+  .match-badge,
+  .cta-glow,
+  .cta-sweep,
+  .cta-sheen {
     animation: none;
   }
   .reveal,

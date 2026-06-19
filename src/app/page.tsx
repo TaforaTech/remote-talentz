@@ -4,7 +4,6 @@ import Proof from "@/components/Proof";
 import Stats from "@/components/Stats";
 import Clients from "@/components/Clients";
 import TalentBridge from "@/components/TalentBridge";
-import Roles from "@/components/Roles";
 import PricingBand from "@/components/PricingBand";
 import About from "@/components/About";
 
@@ -17,7 +16,6 @@ export default function Home() {
       <TalentBridge />
       <Proof />
       {/* <Stats /> */}
-      <Roles />
       <PricingBand />
       <About />
     </>
