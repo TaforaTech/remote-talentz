@@ -10,7 +10,7 @@ import { popularRoles, emergingRoles } from "@/lib/roles";
 
 const NAV_LINKS = [
   { label: "Our Process", href: "/our-process" },
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -249,7 +249,7 @@ export default function Navbar() {
             >
               Pricing
             </button>
-            <Link href="/#about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
+            <Link href="/about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               About Us
             </Link>
             <Link href="/contact" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">

@@ -104,7 +104,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <Link href="/#about" className="text-sm text-paper/75 transition-colors hover:text-paper">
+                <Link href="/about" className="text-sm text-paper/75 transition-colors hover:text-paper">
                   About Us
                 </Link>
               </li>

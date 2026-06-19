@@ -5,7 +5,6 @@ import Stats from "@/components/Stats";
 import Clients from "@/components/Clients";
 import TalentBridge from "@/components/TalentBridge";
 import PricingBand from "@/components/PricingBand";
-import About from "@/components/About";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <Proof />
       {/* <Stats /> */}
       <PricingBand />
-      <About />
     </>
   );
 }

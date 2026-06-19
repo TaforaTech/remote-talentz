@@ -28,19 +28,17 @@ export default function PricingBand() {
   return (
     <section className="py-section">
       <div className="container-rt">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="eyebrow">
             <LogoMark className="size-[0.85em]" /> Pricing
           </p>
-          <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="whitespace-nowrap font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
-              Engagement models built for how you actually ship.
-            </h2>
-            <p className="max-w-md text-base text-ink-soft">
-              Transparent monthly rates by role and seniority. No recruiter
-              percentages, no placement fees, no surprises.
-            </p>
-          </div>
+          <h2 className="mx-auto mt-5 max-w-2xl font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+            Engagement models built for how you actually ship.
+          </h2>
+          <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
+            Transparent monthly rates by role and seniority. No recruiter
+            percentages, no placement fees, no surprises.
+          </p>
         </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3">
