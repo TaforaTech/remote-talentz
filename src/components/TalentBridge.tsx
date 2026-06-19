@@ -10,18 +10,70 @@ import LogoMark from "./LogoMark";
    (y≈566–611) stay in frame, with the route kept off the top edge. */
 const FOCUS = { x: 0, y: 185, w: 1008.3, h: 445 };
 
-/* Endpoints in map units.
-   BD = measured Bangladesh centroid. US = central-US point projected through
-   the map's Mercator bounds (the raw US centroid is dragged west by Alaska). */
-const US = { x: 205, y: 348 };
+/* BD = measured Bangladesh centroid — the hub every spoke radiates from. */
 const BD = { x: 728.7, y: 395.7 };
-/* Quadratic arc bowing north over the route. */
-const ARC = `M${US.x},${US.y} Q466.85,222 ${BD.x},${BD.y}`;
 
 const pct = (p: { x: number; y: number }) => ({
   left: `${((p.x - FOCUS.x) / FOCUS.w) * 100}%`,
   top: `${((p.y - FOCUS.y) / FOCUS.h) * 100}%`,
 });
+
+/* Client regions Bangladesh talent plugs into. Coordinates are real map-unit
+   centroids (measured off world.svg), nudged onto visible land where a raw
+   centroid drifts (Canada/US into the Arctic, Singapore has no own path).
+   `pos` places the label clear of its neighbours; `delay` staggers the draw-in
+   + comet so the network animates as a cascade rather than all at once. */
+type LabelPos = "above" | "below" | "left" | "right";
+type Dest = {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  pos: LabelPos;
+  delay: number;
+  bow?: number;
+};
+/* `bow` overrides the default curvature for the two spokes whose farther node
+   sits almost on the hub chord of a nearer one (Germany over Türkiye, New Zealand
+   over Australia) — a deeper droop swings them clear without touching the rest. */
+const DESTS: Dest[] = [
+  { id: "US", label: "United States", x: 205, y: 348, pos: "above", delay: 0, bow: 0.24 },
+  { id: "CA", label: "Canada", x: 185, y: 254, pos: "above", delay: 0.95 },
+  { id: "GB", label: "England", x: 462, y: 278, pos: "left", delay: 1.55 },
+  { id: "DE", label: "Germany", x: 506, y: 296, pos: "left", delay: 1.35, bow: 0.3 },
+  { id: "TR", label: "Türkiye", x: 575, y: 345, pos: "below", delay: 1.15 },
+  { id: "SG", label: "Singapore", x: 800, y: 468, pos: "right", delay: 0.75 },
+  { id: "AU", label: "Australia", x: 849, y: 546, pos: "above", delay: 0.35 },
+  { id: "NZ", label: "New Zealand", x: 959, y: 588, pos: "left", delay: 0.55, bow: 0.36 },
+];
+
+/* Every spoke gets the SAME proportional curve: a quadratic whose control point
+   sits on the south side of the chord, offset by bow x chord-length. Uniform
+   curvature makes the spokes nest and fan instead of tangling — long western
+   routes droop over Africa, eastern routes over the Indian Ocean, none bow north
+   across Asia. Paths start at the hub so draw-in + comet flow outward. */
+const BOW = 0.22;
+const arcOf = (d: Dest) => {
+  const vx = d.x - BD.x;
+  const vy = d.y - BD.y;
+  // chord rotated -90deg, flipped if needed so it always points south (down)
+  let px = vy;
+  let py = -vx;
+  if (py < 0) {
+    px = -px;
+    py = -py;
+  }
+  const b = d.bow ?? BOW;
+  const cx = (BD.x + d.x) / 2 + b * px;
+  const cy = (BD.y + d.y) / 2 + b * py;
+  return `M${BD.x},${BD.y} Q${cx.toFixed(1)},${cy.toFixed(1)} ${d.x},${d.y}`;
+};
+const LABEL_TF: Record<LabelPos, string> = {
+  above: "translate(-50%,-165%)",
+  below: "translate(-50%,70%)",
+  left: "translate(calc(-100% - 9px),-50%)",
+  right: "translate(9px,-50%)",
+};
 
 /* Bangladesh silhouette (potrace trace, mapsicon) used as the endpoint node.
    The raw path lives in a 0–10240 unit space mapped into a 1024×1024 box by
@@ -109,7 +161,7 @@ export default function TalentBridge() {
             <LogoMark className="size-[0.85em]" /> How it works
           </p>
           <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
-            From Bangladesh to <span className="text-grad-red">US teams</span>
+            From Bangladesh to <span className="text-grad-red">global teams</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
             Elite, pre-vetted engineers — matched in days, in your timezone.
@@ -162,7 +214,7 @@ export default function TalentBridge() {
                 {/* Base world map (injected, restyled) */}
                 <div ref={mapRef} className="rt-map absolute inset-0" />
 
-                {/* Overlay: arc, traveling pulse, endpoint nodes */}
+                {/* Overlay: hub-and-spoke routes, traveling pulses, region nodes */}
                 <svg
                   viewBox={`${FOCUS.x} ${FOCUS.y} ${FOCUS.w} ${FOCUS.h}`}
                   preserveAspectRatio="xMidYMid meet"
@@ -183,45 +235,54 @@ export default function TalentBridge() {
                         <feMergeNode in="SourceGraphic" />
                       </feMerge>
                     </filter>
-                    <filter id="arcNeon" x="-30%" y="-60%" width="160%" height="260%">
-                      <feGaussianBlur stdDeviation="5" />
-                    </filter>
                   </defs>
 
-                  {/* Neon underglow halo for the route */}
-                  <path
-                    d={ARC}
-                    stroke="#ff3040"
-                    strokeWidth="2.8"
-                    strokeOpacity="0.4"
-                    strokeLinecap="round"
-                    filter="url(#arcNeon)"
-                  />
-                  {/* Faint full route beneath the animated one */}
-                  <path d={ARC} stroke="#ff3040" strokeOpacity="0.2" strokeWidth="0.9" />
-                  {/* Animated draw-in route */}
-                  <path
-                    id="talentArcPath"
-                    className="talent-arc"
-                    d={ARC}
-                    pathLength={1}
-                    stroke="url(#talentGrad)"
-                    strokeWidth="1.05"
-                    strokeLinecap="round"
-                    filter="url(#talentGlow)"
-                  />
+                  {/* Spokes — one route per region, drawn outward from Bangladesh.
+                      A faint persistent link sits under a thin animated draw-in
+                      line; a small comet then flows hub → region. No heavy halo —
+                      the thin lines + node glow keep the network legible, not smeared.
+                      Draw-in and comet are staggered per dest for a cascade. */}
+                  {DESTS.map((d) => {
+                    const path = arcOf(d);
+                    return (
+                      <g key={d.id}>
+                        <path d={path} stroke="#ff3040" strokeOpacity="0.14" strokeWidth="0.7" />
+                        <path
+                          id={`arc-${d.id}`}
+                          className="talent-arc"
+                          d={path}
+                          pathLength={1}
+                          stroke="url(#talentGrad)"
+                          strokeWidth="0.9"
+                          strokeLinecap="round"
+                          filter="url(#talentGlow)"
+                          style={{ animationDelay: `${0.15 + d.delay}s` }}
+                        />
+                        <circle r="2" fill="#fff" filter="url(#talentGlow)">
+                          <animateMotion
+                            dur="3s"
+                            begin={`-${d.delay}s`}
+                            repeatCount="indefinite"
+                            rotate="auto"
+                            keyTimes="0;1"
+                            keyPoints="0;1"
+                            calcMode="linear"
+                          >
+                            <mpath href={`#arc-${d.id}`} />
+                          </animateMotion>
+                        </circle>
+                      </g>
+                    );
+                  })}
 
-                  {/* Comet traveling Bangladesh → US */}
-                  <circle r="3.4" fill="#fff" filter="url(#talentGlow)">
-                    <animateMotion dur="2.8s" repeatCount="indefinite" rotate="auto" keyTimes="0;1" keyPoints="1;0" calcMode="linear">
-                      <mpath href="#talentArcPath" />
-                    </animateMotion>
-                  </circle>
-
-                  {/* US node */}
-                  <circle className="talent-ping" cx={US.x} cy={US.y} r="7" fill="#fff" opacity="0.4" />
-                  <circle cx={US.x} cy={US.y} r="5" fill="#fff" filter="url(#talentGlow)" />
-                  <circle cx={US.x} cy={US.y} r="2" fill="#0a0908" />
+                  {/* Region nodes — pulse ring, glowing dot, dark core */}
+                  {DESTS.map((d) => (
+                    <g key={`${d.id}-node`}>
+                      <circle className="talent-ping" cx={d.x} cy={d.y} r="5.5" fill="#fff" opacity="0.4" />
+                      <circle cx={d.x} cy={d.y} r="3.5" fill="#fff" filter="url(#talentGlow)" />
+                      <circle cx={d.x} cy={d.y} r="1.5" fill="#0a0908" />
+                    </g>
+                  ))}
 
                   {/* Bangladesh node — the country silhouette stands in for the dot.
                       Positioning lives on the wrapping <g>; the ping copy keeps its
@@ -241,15 +302,19 @@ export default function TalentBridge() {
                 </svg>
 
                 {/* HTML labels (stay crisp at any size) */}
+                {DESTS.map((d) => (
+                  <span
+                    key={`${d.id}-lbl`}
+                    className="absolute whitespace-nowrap rounded-full border border-white/15 bg-white/10 px-2 py-0.5 font-mono text-[0.5rem] uppercase tracking-[0.14em] text-white/80 backdrop-blur sm:text-2xs"
+                    style={{ ...pct(d), transform: LABEL_TF[d.pos] }}
+                  >
+                    {d.label}
+                  </span>
+                ))}
+                {/* Bangladesh hub label */}
                 <span
-                  className="absolute -translate-x-1/2 translate-y-[-170%] whitespace-nowrap rounded-full border border-white/15 bg-white/10 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-white/80 backdrop-blur sm:text-2xs"
-                  style={pct(US)}
-                >
-                  United States
-                </span>
-                <span
-                  className="absolute -translate-x-1/2 translate-y-[60%] whitespace-nowrap rounded-full bg-red px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-white shadow-[0_0_22px_rgba(255,48,64,0.7)] sm:text-2xs"
-                  style={pct(BD)}
+                  className="absolute whitespace-nowrap rounded-full bg-red px-2.5 py-1 font-mono text-[0.55rem] uppercase tracking-[0.18em] text-white shadow-[0_0_22px_rgba(255,48,64,0.7)] sm:text-2xs"
+                  style={{ ...pct(BD), transform: "translate(-50%,72%)" }}
                 >
                   Bangladesh
                 </span>
