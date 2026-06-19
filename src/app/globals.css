@@ -617,6 +617,43 @@ body {
   }
 }
 
+/* ---- Our Process — two-row roadmap (3 steps per row) ----
+   Numbered nodes rest as a gradient ring, then fill with the brand gradient
+   in a staggered sweep once the grid scrolls into view. */
+.process-node {
+  /* Small, solid black numeral. Faint at rest, settling to ink once the card
+     scrolls in — no badge, no colour block. */
+  color: rgba(12, 11, 10, 0.3);
+  transition: color 0.5s ease;
+}
+.process-node[data-on="true"] {
+  color: var(--rt-ink);
+}
+
+/* Icon chip — rests as a soft tint, then on card hover adopts the action
+   button's gradient (with the same sheen sweep + brand shadow). */
+.process-icon {
+  background-color: var(--rt-red-tint);
+  color: var(--rt-red);
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  box-shadow: 0 0 0 0 rgba(214, 5, 5, 0);
+  transition: background-position 0.55s ease, box-shadow 0.3s ease,
+    color 0.25s ease;
+}
+.group:hover .process-icon {
+  background-image: var(--rt-grad-action);
+  background-position: 100% 0;
+  color: #fff;
+  box-shadow: var(--rt-shadow-action);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-node {
+    transition: none;
+  }
+}
+
 /* Paper grain for atmosphere */
 .grain::before {
   content: "";

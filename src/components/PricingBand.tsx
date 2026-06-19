@@ -33,7 +33,7 @@ export default function PricingBand() {
             <LogoMark className="size-[0.85em]" /> Pricing
           </p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-2xl font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
+            <h2 className="whitespace-nowrap font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
               Engagement models built for how you actually ship.
             </h2>
             <p className="max-w-md text-base text-ink-soft">

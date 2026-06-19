@@ -15,10 +15,8 @@ export default function Contact() {
           <p className="eyebrow">
             <LogoMark className="size-[0.85em]" /> Contact
           </p>
-          <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
-            Tell us who
-            <br />
-            you need.
+          <h2 className="mt-5 whitespace-nowrap font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
+            Tell us who you need.
           </h2>
           <p className="mt-6 max-w-md text-base text-ink-soft">
             Share the role and the stack — we&apos;ll come back within one

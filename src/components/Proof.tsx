@@ -183,9 +183,8 @@ export default function Proof() {
     >
       <div className="container-rt">
         <Reveal className="text-center">
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
-            We help companies save{" "}
-            <span className="text-grad-red">$103,000+</span> per hire
+          <h2 className="mx-auto whitespace-nowrap font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+            We help companies save $103,000+ per hire
           </h2>
         </Reveal>
 

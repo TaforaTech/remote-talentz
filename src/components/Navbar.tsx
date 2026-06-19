@@ -9,7 +9,7 @@ import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
 
 const NAV_LINKS = [
-  { label: "How we work", href: "/how-we-work" },
+  { label: "Our Process", href: "/our-process" },
   { label: "About Us", href: "/#about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -237,8 +237,8 @@ export default function Navbar() {
           )}
 
           <div className="divide-y divide-line-soft border-t border-line-soft">
-            <Link href="/how-we-work" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
-              How we work
+            <Link href="/our-process" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
+              Our Process
             </Link>
             <button
               onClick={() => {

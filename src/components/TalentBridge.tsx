@@ -163,8 +163,8 @@ export default function TalentBridge() {
           <p className="eyebrow justify-center">
             <LogoMark className="size-[0.85em]" /> How it works
           </p>
-          <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
-            From Bangladesh to <span className="text-grad-red">global teams</span>
+          <h2 className="mx-auto mt-5 whitespace-nowrap font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+            From Bangladesh to global teams
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
             Elite, pre-vetted engineers — matched in days, in your timezone.

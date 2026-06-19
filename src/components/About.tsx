@@ -37,10 +37,8 @@ export default function About() {
             <p className="eyebrow">
               <LogoMark className="size-[0.85em]" /> About Us
             </p>
-            <h2 className="mt-5 font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
-              A network,
-              <br />
-              not a marketplace.
+            <h2 className="mt-5 whitespace-nowrap font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
+              A network, not a marketplace.
             </h2>
           </Reveal>
 
