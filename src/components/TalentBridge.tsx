@@ -192,7 +192,7 @@ export default function TalentBridge() {
                   <path
                     d={ARC}
                     stroke="#ff3040"
-                    strokeWidth="4"
+                    strokeWidth="2.8"
                     strokeOpacity="0.4"
                     strokeLinecap="round"
                     filter="url(#arcNeon)"
@@ -206,13 +206,13 @@ export default function TalentBridge() {
                     d={ARC}
                     pathLength={1}
                     stroke="url(#talentGrad)"
-                    strokeWidth="1.5"
+                    strokeWidth="1.05"
                     strokeLinecap="round"
                     filter="url(#talentGlow)"
                   />
 
                   {/* Comet traveling Bangladesh → US */}
-                  <circle r="5" fill="#fff" filter="url(#talentGlow)">
+                  <circle r="3.4" fill="#fff" filter="url(#talentGlow)">
                     <animateMotion dur="2.8s" repeatCount="indefinite" rotate="auto" keyTimes="0;1" keyPoints="1;0" calcMode="linear">
                       <mpath href="#talentArcPath" />
                     </animateMotion>
