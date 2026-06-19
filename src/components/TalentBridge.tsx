@@ -308,7 +308,7 @@ export default function TalentBridge() {
                 {DESTS.map((d) => (
                   <span
                     key={`${d.id}-lbl`}
-                    className="absolute whitespace-nowrap rounded-full border border-white/15 bg-white/10 px-2 py-0.5 font-mono text-[0.5rem] uppercase tracking-[0.14em] text-white/80 backdrop-blur sm:text-2xs"
+                    className="absolute whitespace-nowrap rounded-full border border-white/15 bg-white/10 px-1.5 py-0 font-mono text-[0.4rem] uppercase tracking-[0.1em] text-white/80 backdrop-blur sm:text-[0.55rem]"
                     style={{ ...pct(d), transform: LABEL_TF[d.pos] }}
                   >
                     {d.label}
@@ -316,8 +316,8 @@ export default function TalentBridge() {
                 ))}
                 {/* Bangladesh hub label */}
                 <span
-                  className="absolute whitespace-nowrap rounded-full bg-red px-2.5 py-1 font-mono text-[0.55rem] uppercase tracking-[0.18em] text-white shadow-[0_0_22px_rgba(255,48,64,0.7)] sm:text-2xs"
-                  style={{ ...pct(BD), transform: "translate(-50%,72%)" }}
+                  className="absolute whitespace-nowrap rounded-full bg-red px-2 py-0.5 font-mono text-[0.45rem] uppercase tracking-[0.14em] text-white shadow-[0_0_22px_rgba(255,48,64,0.7)] sm:text-[0.6rem]"
+                  style={{ ...pct(BD), transform: "translate(-10%,-200%)" }}
                 >
                   Bangladesh
                 </span>
