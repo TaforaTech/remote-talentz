@@ -55,7 +55,7 @@ export default function Hero() {
               style={{ animationDelay: "320ms" }}
             >
               <StartHiringButton variant="red" />
-              <Link href="#how-we-work" className="btn btn-ghost">
+              <Link href="/how-we-work" className="btn btn-ghost">
                 See how we work
               </Link>
             </div>

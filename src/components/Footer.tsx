@@ -54,7 +54,7 @@ export default function Footer() {
             </p>
             <ul className="mt-4 space-y-2.5">
               <li>
-                <Link href="/#how-we-work" className="text-sm text-paper/70 transition-colors hover:text-paper">
+                <Link href="/how-we-work" className="text-sm text-paper/70 transition-colors hover:text-paper">
                   How we work
                 </Link>
               </li>
