@@ -231,6 +231,14 @@ export default function TalentBridge() {
                       <stop offset="55%" stopColor="#ff3040" />
                       <stop offset="100%" stopColor="#d60505" />
                     </linearGradient>
+                    {/* Reversed copy for spokes whose target lies WEST of the hub:
+                        their bounding box runs target→BD left-to-right, so the dark
+                        end must sit on the left (target) and light on the right (BD). */}
+                    <linearGradient id="talentGradRev" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#d60505" />
+                      <stop offset="45%" stopColor="#ff3040" />
+                      <stop offset="100%" stopColor="#ff6a73" />
+                    </linearGradient>
                     <filter id="talentGlow" x="-80%" y="-80%" width="260%" height="260%">
                       <feGaussianBlur stdDeviation="3.2" result="b" />
                       <feMerge>
@@ -247,6 +255,9 @@ export default function TalentBridge() {
                       Draw-in and comet are staggered per dest for a cascade. */}
                   {DESTS.map((d) => {
                     const path = arcOf(d);
+                    // West-of-hub targets read target→BD across the bbox, so they
+                    // need the reversed gradient to keep dark on the target side.
+                    const grad = d.x < BD.x ? "talentGradRev" : "talentGrad";
                     return (
                       <g key={d.id}>
                         <path d={path} stroke="#ff3040" strokeOpacity="0.14" strokeWidth="0.7" />
@@ -255,7 +266,7 @@ export default function TalentBridge() {
                           className="talent-arc"
                           d={path}
                           pathLength={1}
-                          stroke="url(#talentGrad)"
+                          stroke={`url(#${grad})`}
                           strokeWidth="0.9"
                           strokeLinecap="round"
                           filter="url(#talentGlow)"
