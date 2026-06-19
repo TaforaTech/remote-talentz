@@ -20,7 +20,7 @@ const pct = (p: { x: number; y: number }) => ({
 
 /* Client regions Bangladesh talent plugs into. Coordinates are real map-unit
    centroids (measured off world.svg), nudged onto visible land where a raw
-   centroid drifts (Canada/US into the Arctic, Singapore has no own path).
+   centroid drifts (Canada/US into the Arctic).
    `pos` places the label clear of its neighbours; `delay` staggers the draw-in
    + comet so the network animates as a cascade rather than all at once. */
 type LabelPos = "above" | "below" | "left" | "right";
@@ -33,18 +33,20 @@ type Dest = {
   delay: number;
   bow?: number;
 };
-/* `bow` overrides the default curvature for the two spokes whose farther node
-   sits almost on the hub chord of a nearer one (Germany over Türkiye, New Zealand
-   over Australia) — a deeper droop swings them clear without touching the rest. */
+/* `bow` overrides the default curvature for spokes that would otherwise tangle.
+   The western trio all arc NORTH with nested bows so they fan cleanly: Türkiye
+   bends gently (-0.12) over Turkmenistan, Germany sits between (-0.18), England
+   arcs furthest north (-0.26) over Kazakhstan. New Zealand likewise uses a
+   negative bow so its spoke arcs north over the Philippines and Papua New Guinea
+   rather than drooping under Australia into empty ocean. */
 const DESTS: Dest[] = [
   { id: "US", label: "United States", x: 205, y: 348, pos: "above", delay: 0, bow: 0.24 },
   { id: "CA", label: "Canada", x: 185, y: 254, pos: "above", delay: 0.95 },
-  { id: "GB", label: "England", x: 462, y: 278, pos: "left", delay: 1.55 },
-  { id: "DE", label: "Germany", x: 506, y: 296, pos: "left", delay: 1.35, bow: 0.3 },
-  { id: "TR", label: "Türkiye", x: 575, y: 345, pos: "below", delay: 1.15 },
-  { id: "SG", label: "Singapore", x: 800, y: 468, pos: "right", delay: 0.75 },
-  { id: "AU", label: "Australia", x: 849, y: 546, pos: "above", delay: 0.35 },
-  { id: "NZ", label: "New Zealand", x: 959, y: 588, pos: "left", delay: 0.55, bow: 0.36 },
+  { id: "GB", label: "England", x: 462, y: 278, pos: "left", delay: 1.55, bow: -0.26 },
+  { id: "DE", label: "Germany", x: 506, y: 296, pos: "left", delay: 1.35, bow: -0.18 },
+  { id: "TR", label: "Türkiye", x: 575, y: 345, pos: "below", delay: 1.15, bow: -0.12 },
+  { id: "AU", label: "Australia", x: 849, y: 546, pos: "above", delay: 0.35, bow: -0.2 },
+  { id: "NZ", label: "New Zealand", x: 959, y: 588, pos: "left", delay: 0.55, bow: -0.36 },
 ];
 
 /* Every spoke gets the SAME proportional curve: a quadratic whose control point
