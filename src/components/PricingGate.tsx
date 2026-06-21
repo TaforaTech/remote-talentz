@@ -16,8 +16,9 @@ export default function PricingGate() {
 }
 
 function Gate({ onUnlock }: { onUnlock: () => void }) {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  // Pre-filled for development so the gate can be cleared with one click.
+  const [name, setName] = useState(ACCESS_NAME);
+  const [password, setPassword] = useState(ACCESS_PASSWORD);
   const [error, setError] = useState(false);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
