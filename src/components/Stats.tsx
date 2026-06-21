@@ -130,15 +130,7 @@ const PILLS = [
 
 export default function Stats() {
   return (
-    <section
-      className="relative overflow-hidden py-section"
-      style={{
-        background:
-          "radial-gradient(70% 60% at 50% -10%, rgba(255, 48, 64, 0.22), transparent 60%)," +
-          "radial-gradient(60% 55% at 90% 110%, rgba(214, 5, 5, 0.16), transparent 60%)," +
-          "linear-gradient(180deg, #fff2ef 0%, var(--rt-paper) 70%)",
-      }}
-    >
+    <section className="relative overflow-hidden bg-white py-section">
       <div className="container-rt">
       <Reveal>
         <h2 className="mx-auto max-w-3xl text-center font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">

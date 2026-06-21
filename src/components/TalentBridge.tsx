@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
-import LogoMark from "./LogoMark";
 
 /* The injected world map content lives in a 1008.3 × 650.9 coordinate space.
    FOCUS crops it to a wide panoramic band — full longitude, trimmed of the empty
@@ -148,22 +147,9 @@ export default function TalentBridge() {
 
   return (
     <section className="relative overflow-hidden pt-[clamp(1.75rem,1rem+2.6vw,3.25rem)]">
-      {/* Atmospheric wash */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(70% 55% at 50% 0%, rgba(255,48,64,0.07), transparent 70%)",
-        }}
-      />
-
       <div className="container-rt relative">
         <Reveal className="text-center">
-          <p className="eyebrow justify-center">
-            <LogoMark className="size-[0.85em]" /> How it works
-          </p>
-          <h2 className="mx-auto mt-5 whitespace-nowrap font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+          <h2 className="mx-auto whitespace-nowrap font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
             From Bangladesh to global teams
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">

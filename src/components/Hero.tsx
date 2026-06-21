@@ -7,15 +7,7 @@ import StartHiringButton from "./StartHiringButton";
 
 export default function Hero() {
   return (
-    <section
-      className="relative overflow-hidden pt-nav"
-      style={{
-        background:
-          "radial-gradient(90% 70% at 85% -10%, rgba(227, 0, 27, 0.18), transparent 55%)," +
-          "radial-gradient(80% 65% at 0% 115%, rgba(227, 0, 27, 0.1), transparent 55%)," +
-          "linear-gradient(180deg, #fff2ef 0%, var(--rt-paper) 60%)",
-      }}
-    >
+    <section className="relative overflow-hidden bg-white pt-nav">
       {/* Oversized watermark asterisk */}
       {/* <div
         aria-hidden="true"

@@ -70,7 +70,7 @@ const REASONS: {
 
 export default function WhyRemoteTalentz() {
   return (
-    <section className="container-rt py-[clamp(3rem,1.9rem+4.4vw,5.5rem)]">
+    <section className="container-rt pt-[clamp(1rem,0.4rem+2vw,2.25rem)] pb-[clamp(3rem,1.9rem+4.4vw,5.5rem)]">
       <Reveal className="text-center">
         <p className="eyebrow">
           <LogoMark className="size-[0.85em]" /> Why us

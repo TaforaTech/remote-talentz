@@ -51,8 +51,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-paper/90 backdrop-blur-md transition-shadow ${
-        scrolled ? "border-b border-line-soft shadow-[0_1px_0_var(--rt-line-soft)]" : ""
+      className={`fixed inset-x-0 top-0 z-50 bg-paper/90 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled
+          ? "border-b border-line-soft shadow-[0_8px_24px_-12px_rgba(12,11,10,0.18),0_1px_0_var(--rt-line-soft)]"
+          : "shadow-none"
       }`}
     >
       <nav className="container-rt flex h-nav items-center justify-between gap-6">
