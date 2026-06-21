@@ -79,6 +79,9 @@
   --rt-content: 106.875rem;
 
   --rt-section: clamp(4.5rem, 2.8rem + 7vw, 9rem);
+  /* Tighter vertical rhythm — half of --rt-section. Used on dense pages
+     (e.g. /pricing) where the full section gap reads as too airy. */
+  --rt-section-tight: clamp(2.25rem, 1.4rem + 3.5vw, 4.5rem);
   --rt-nav-h: clamp(4rem, 3.4rem + 1.6vw, 4.75rem);
 }
 
@@ -138,6 +141,7 @@
   /* Fluid spacing utilities: p-gutter, py-section, h-nav … */
   --spacing-gutter: var(--rt-gutter);
   --spacing-section: var(--rt-section);
+  --spacing-section-tight: var(--rt-section-tight);
   --spacing-nav: var(--rt-nav-h);
 }
 

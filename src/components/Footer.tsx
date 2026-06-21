@@ -4,7 +4,6 @@ import Link from "next/link";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
 import StartHiringButton from "./StartHiringButton";
-import { usePricing } from "./PricingModal";
 
 const ROLE_LINKS = [
   "LLM Engineer",
@@ -15,7 +14,6 @@ const ROLE_LINKS = [
 ];
 
 export default function Footer() {
-  const { openPricing } = usePricing();
   const year = new Date().getFullYear();
 
   return (
@@ -99,9 +97,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <button onClick={openPricing} className="text-sm text-paper/75 transition-colors hover:text-paper">
+                <Link href="/pricing" className="text-sm text-paper/75 transition-colors hover:text-paper">
                   Pricing
-                </button>
+                </Link>
               </li>
               <li>
                 <Link href="/about" className="text-sm text-paper/75 transition-colors hover:text-paper">

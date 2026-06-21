@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import LogoMark from "./LogoMark";
 import StartHiringButton from "./StartHiringButton";
-import { usePricing } from "./PricingModal";
 import { popularRoles, emergingRoles } from "@/lib/roles";
 
 const NAV_LINKS = [
@@ -15,7 +14,6 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const { openPricing } = usePricing();
   const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileTalents, setMobileTalents] = useState(false);
@@ -163,9 +161,9 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <button className="nav-link" onClick={openPricing}>
+          <Link href="/pricing" className="nav-link">
             Pricing
-          </button>
+          </Link>
 
           {NAV_LINKS.slice(1).map((l) => (
             <Link key={l.href} href={l.href} className="nav-link">
@@ -240,15 +238,13 @@ export default function Navbar() {
             <Link href="/our-process" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               Our Process
             </Link>
-            <button
-              onClick={() => {
-                closeAll();
-                openPricing();
-              }}
-              className="block w-full py-4 text-left font-display text-xl font-semibold"
+            <Link
+              href="/pricing"
+              onClick={closeAll}
+              className="block py-4 font-display text-xl font-semibold"
             >
               Pricing
-            </button>
+            </Link>
             <Link href="/about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               About Us
             </Link>
