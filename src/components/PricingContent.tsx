@@ -40,8 +40,8 @@ function Header() {
             Elite talent, at up to 85% less.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
-            Two ways to hire — a managed dedicated hire or a direct placement.
-            One flat rate, no hidden fees, every hire guaranteed.
+            Two ways to hire — a managed dedicated hire or a direct placement —
+            both at one flat rate, with no hidden fees and every hire guaranteed.
           </p>
           <p className="mx-auto mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 font-mono text-2xs uppercase tracking-[0.16em] text-ink-faint">
             <span>Interview-ready shortlist in 48 hours</span>
