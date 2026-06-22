@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeroAnimation from "./HeroAnimation";
 import StartHiringButton from "./StartHiringButton";
+import ArrowBadge from "./ArrowBadge";
 // Used only by the temporarily-removed role ticker below:
 // import LogoMark from "./LogoMark";
 // import { allRoles } from "@/lib/roles";
@@ -47,8 +48,15 @@ export default function Hero() {
               style={{ animationDelay: "320ms" }}
             >
               <StartHiringButton variant="red" />
-              <Link href="/pricing" className="btn btn-ghost !px-5 !py-2 text-base">
+              <Link
+                href="/pricing"
+                className="group btn btn-ghost !px-5 !py-2 text-base"
+              >
                 See Pricing
+                <ArrowBadge
+                  circleClassName="bg-[image:var(--rt-grad-action)]"
+                  arrowClassName="text-white"
+                />
               </Link>
             </div>
           </div>
