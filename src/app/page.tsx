@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import WhyRemoteTalentz from "@/components/WhyRemoteTalentz";
+import MonitorSupport from "@/components/MonitorSupport";
 import Proof from "@/components/Proof";
 import Stats from "@/components/Stats";
 import Clients from "@/components/Clients";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <WhyRemoteTalentz />
+      <MonitorSupport />
       <Clients />
       <TalentBridge />
       <Proof />
