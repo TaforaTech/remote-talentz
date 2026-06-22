@@ -71,7 +71,7 @@ export default function HeroAnimation() {
           <StepNode n="3" className="step-3" />
           <div className="step-card step-3 relative flex-1 rounded-2xl border bg-paper-raised p-5">
             <span className="match-badge brand-grad absolute -top-3 right-5 rounded-full px-3 py-1 font-mono text-2xs uppercase tracking-[0.14em] text-white">
-              Matched in 48h
+              Matched in 3 Days
             </span>
             <p className="font-mono text-2xs uppercase tracking-[0.2em] text-ink-faint">
               Your team

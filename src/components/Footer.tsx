@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
 import StartHiringButton from "./StartHiringButton";
+import ArrowBadge from "./ArrowBadge";
 
 const ROLE_LINKS = [
   "LLM Engineer",
@@ -22,7 +23,7 @@ export default function Footer() {
       <div className="container-rt pt-16">
         <div className="relative">
           {/* Clean white card */}
-          <div className="relative overflow-hidden rounded-[1.85rem] bg-paper px-6 py-16 text-center shadow-[0_40px_100px_-45px_rgba(0,0,0,0.45)] ring-1 ring-black/5 sm:px-12 sm:py-24">
+          <div className="relative overflow-hidden rounded-[1.85rem] bg-paper px-6 py-10 text-center shadow-[0_40px_100px_-45px_rgba(0,0,0,0.45)] ring-1 ring-black/5 sm:px-12 sm:py-14">
             <Reveal className="relative">
               <p className="flex items-center justify-center gap-2 font-mono text-2xs uppercase tracking-[0.24em] text-ink-soft">
                 <span className="relative flex size-1.5">
@@ -35,22 +36,22 @@ export default function Footer() {
                 Hire who your rival&apos;s still interviewing.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
-                Brief us today, meet an interview-ready shortlist in 48 hours —
-                elite AI-native talent, in your timezone, for up to 70% less.
+                Brief us today, meet an interview-ready shortlist in 3 days —
+                elite AI-native talent, in your timezone, for up to 85% less.
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-                <StartHiringButton variant="red" size="lg" />
-                <Link href="/contact" className="btn btn-ghost border-ink/15 bg-white/40">
-                  Talk to us
+                <StartHiringButton variant="red" />
+                <Link
+                  href="/pricing"
+                  className="group btn btn-ghost !px-5 !py-2 text-base"
+                >
+                  See Pricing
+                  <ArrowBadge
+                    circleClassName="bg-[image:var(--rt-grad-action)]"
+                    arrowClassName="text-white"
+                  />
                 </Link>
               </div>
-              <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-2xs text-ink-faint">
-                <span>No retainers</span>
-                <span className="text-ink/25">·</span>
-                <span>Shortlist in 48 hours</span>
-                <span className="text-ink/25">·</span>
-                <span>Two-week risk-free trial</span>
-              </p>
             </Reveal>
           </div>
         </div>

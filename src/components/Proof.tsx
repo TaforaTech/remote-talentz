@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 import CountUp from "./CountUp";
 
 const STATS = [
-  { end: 48, suffix: "", unit: "Hours", label: "to get matched" },
+  { end: 3, suffix: "", unit: "Days", label: "to get matched" },
   { end: 4.8, decimals: 1, suffix: "", unit: "", label: "avg client rating" },
   { end: 50, suffix: "+", unit: "", label: "companies building with us" },
   { end: 90, suffix: "%", unit: "", label: "talent retention rate" },

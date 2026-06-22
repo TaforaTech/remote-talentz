@@ -121,7 +121,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Side CTA panel */}
-                    <div className="flex w-56 flex-col justify-between bg-[#F93B55] p-7 text-paper">
+                    <div className="flex w-56 flex-col justify-between bg-gradient-to-b from-[#9c0018] to-[#6f0013] p-7 text-paper">
                       <div>
                         <p className="font-mono text-2xs uppercase tracking-[0.22em] text-white">
                           Not listed?
