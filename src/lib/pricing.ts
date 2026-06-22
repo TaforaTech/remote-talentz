@@ -222,4 +222,32 @@ export const faqs: Faq[] = [
     q: "How does billing work?",
     a: "Dedicated talent is billed monthly in advance — each month's cost is paid on the 1st, with no timesheets. Direct-hire is either 50% upfront / 50% on hire, or 100% on hire at a higher fee.",
   },
+  {
+    q: "How is this different from a typical recruiter?",
+    a: "We manage outcomes, not just resumes. Ongoing post-hire support, performance tracking, and a real stake in both client and candidate success make us a long-term hiring partner rather than a one-off placement agency.",
+  },
+  {
+    q: "Which kinds of roles can you staff?",
+    a: "We place remote developers, designers, marketers, executive assistants, and operations staff. Whether you need a single frontend engineer or a full-time EA, the breadth is there.",
+  },
+  {
+    q: "Do I get the final say on who I hire?",
+    a: "Always. Once we've shortlisted the strongest candidates, you review their profiles, run your own interviews, and make the call — we simply take the heavy lifting off your plate.",
+  },
+  {
+    q: "What's the typical timeline from brief to hire?",
+    a: "Most teams see a curated shortlist within 3–5 business days and finalize a hire in one to two weeks. The pace mainly comes down to how quickly you can review profiles and run interviews.",
+  },
+  {
+    q: "Where is your talent based, and how strong is their English?",
+    a: "Our talent pool is mainly in Bangladesh — top university graduates and seasoned professionals. Everyone speaks fluent English, works U.S. time zones, and is trained to align with Western business standards.",
+  },
+  {
+    q: "Can I grow an entire team, not just one hire?",
+    a: "Yes — team-building is our specialty. A deep talent pool and a streamlined process let you scale fast without trading away quality.",
+  },
+  {
+    q: "Are there any upfront or hidden fees?",
+    a: "No. You pay one flat monthly fee per hire that bundles salary payout, performance oversight, and all admin — no setup costs and no long-term lock-ins, so pricing stays clear and easy to scale.",
+  },
 ];
