@@ -33,14 +33,14 @@ export default function Hero() {
             >
               <span className="lg:whitespace-nowrap">Hire Elite AI-Native Talents</span>
               <br />
-              Save Up to 82%
+              Save Up to 85%
             </h1>
 
             <p
               className="anim-fade-up mt-7 text-base text-ink-soft"
               style={{ animationDelay: "220ms" }}
             >
-              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 82%. No upfront cost, pay only when you hire with replacement guarantee.
+              Scale your team faster with pre-vetted engineers, AI specialists, and tech professionals while reducing hiring costs by up to 85%. No upfront cost, pay only when you hire with replacement guarantee.
             </p>
 
             <div
