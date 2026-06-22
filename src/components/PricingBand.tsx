@@ -54,7 +54,7 @@ export default function PricingBand() {
                 <p className="mt-3 flex-1 text-sm text-ink-soft">{m.body}</p>
                 <button
                   onClick={openPricing}
-                  className="group/link mt-8 inline-flex items-center gap-2 self-start text-sm font-semibold text-ink transition-colors hover:text-red"
+                  className="group/link mt-8 inline-flex cursor-pointer items-center gap-2 self-start text-sm font-semibold text-ink transition-colors hover:text-red"
                 >
                   See rates
                   <span aria-hidden="true" className="transition-transform group-hover/link:translate-x-0.5">
@@ -65,24 +65,6 @@ export default function PricingBand() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="mt-12 overflow-hidden rounded-2xl bg-ink">
-          <div className="flex flex-col items-start justify-between gap-8 p-10 lg:flex-row lg:items-center">
-            <div>
-              <h3 className="font-display text-2xl font-semibold text-paper">
-                The full rate card, straight to your inbox.
-              </h3>
-              <p className="mt-2 max-w-xl text-sm text-paper/65">
-                Complete breakdowns by role, seniority, and engagement model —
-                and what you save versus a comparable local hire.
-              </p>
-            </div>
-            <button onClick={openPricing} className="btn btn-red shrink-0">
-              Unlock Full Pricing
-              <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
