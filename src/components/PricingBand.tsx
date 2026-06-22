@@ -26,7 +26,7 @@ export default function PricingBand() {
   const { openPricing } = usePricing();
 
   return (
-    <section className="py-section">
+    <section className="pb-section pt-2 sm:pt-3">
       <div className="container-rt">
         <Reveal className="text-center">
           <p className="eyebrow">
