@@ -47,10 +47,33 @@ export default function Hero() {
               className="anim-fade-up mt-9 flex flex-wrap items-center gap-4"
               style={{ animationDelay: "320ms" }}
             >
-              <StartHiringButton variant="red" />
+              <StartHiringButton variant="red" className="!gap-1.5" />
+              <Link
+                href="/contact"
+                className="group btn btn-ink !px-5 !py-2 text-base !gap-1.5"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="size-[1.15em] shrink-0"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+                Book a Call
+                <ArrowBadge
+                  circleClassName="bg-white"
+                  arrowClassName="text-ink"
+                />
+              </Link>
               <Link
                 href="/pricing"
-                className="group btn btn-ghost !px-5 !py-2 text-base"
+                className="group btn btn-ghost !px-5 !py-2 text-base !gap-1.5"
               >
                 See Pricing
                 <ArrowBadge
