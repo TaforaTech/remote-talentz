@@ -43,7 +43,7 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 const badge: Record<ButtonVariant, { circleClassName: string; arrowClassName: string }> = {
   red: { circleClassName: "bg-white", arrowClassName: "text-red" },
   ink: { circleClassName: "bg-white", arrowClassName: "text-ink" },
-  ghost: { circleClassName: "bg-[image:var(--rt-grad-action)]", arrowClassName: "text-white" },
+  ghost: { circleClassName: "bg-transparent !-ml-2", arrowClassName: "text-ink group-hover:text-paper" },
   paper: { circleClassName: "bg-ink", arrowClassName: "text-white" },
 };
 

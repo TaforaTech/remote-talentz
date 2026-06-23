@@ -182,7 +182,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href="/schedule" target="_blank" rel="noopener noreferrer" variant="ghost" size="md" className="!gap-1.5" arrow="badge" iconLeft={<CalendarIcon />}>
+          <Button href="/schedule" target="_blank" rel="noopener noreferrer" variant="ghost" size="md" className="!gap-1.5" iconLeft={<CalendarIcon />}>
             Book a Call
           </Button>
           <StartHiringButton variant="red" />
@@ -272,7 +272,6 @@ export default function Navbar() {
             variant="ghost"
             size="md"
             className="mt-8 w-full !gap-1.5"
-            arrow="badge"
             iconLeft={<CalendarIcon />}
             onClick={closeAll}
           >

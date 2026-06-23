@@ -54,7 +54,6 @@ export default function Hero() {
                 variant="ghost"
                 size="md"
                 className="!gap-1.5"
-                arrow="badge"
                 iconLeft={
                   <svg
                     viewBox="0 0 24 24"
