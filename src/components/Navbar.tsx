@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import LogoMark from "./LogoMark";
 import StartHiringButton from "./StartHiringButton";
+import Button from "./Button";
 import { popularRoles, emergingRoles } from "@/lib/roles";
 
 const NAV_LINKS = [
@@ -133,9 +134,15 @@ export default function Navbar() {
                           We source niche roles on request — usually within a week.
                         </p>
                       </div>
-                      <Link href="/contact" onClick={closeAll} className="btn btn-paper mt-6 !px-5 !py-2.5">
+                      <Button
+                        href="/contact"
+                        onClick={closeAll}
+                        variant="paper"
+                        size="md"
+                        className="mt-6 !py-2.5"
+                      >
                         Talk to us
-                      </Link>
+                      </Button>
                     </div>
                   </div>
 

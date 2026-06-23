@@ -67,8 +67,10 @@ export const button = {
     paper: "btn-paper",
   },
   size: {
-    // Tighter padding than the base `.btn` so the label reads bigger
-    // without inflating the overall button.
+    // `base` keeps the padding baked into `.btn` (used by full-width form
+    // buttons and card CTAs). The others override it so the label reads
+    // bigger or smaller without inflating the overall button.
+    base: "",
     sm: "!px-4 !py-1.5 text-sm",
     md: "!px-5 !py-2 text-base",
     lg: "px-7 py-2.5 text-lg",

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "./Reveal";
 import LogoMark from "./LogoMark";
+import Button from "./Button";
 import { popularRoles, emergingRoles, type Role } from "@/lib/roles";
 
 export default function Roles() {
@@ -37,10 +38,9 @@ export default function Roles() {
               We source niche roles on request.
             </span>
           </p>
-          <Link href="/contact" className="btn btn-ink shrink-0">
+          <Button href="/contact" variant="ink" className="shrink-0" arrow="right">
             Request a role
-            <span aria-hidden="true">→</span>
-          </Link>
+          </Button>
         </Reveal>
       </div>
     </section>

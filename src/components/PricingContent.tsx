@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Reveal from "./Reveal";
 import LogoMark from "./LogoMark";
+import Button from "./Button";
 import {
   serviceSummary,
   rateCard,
@@ -94,23 +94,14 @@ function ServiceSummary() {
                 </ul>
 
                 <div className="mt-8 flex-1" />
-                {s.cta.href ? (
-                  <Link
-                    href={s.cta.href}
-                    className={`btn w-full ${s.featured ? "btn-red" : "btn-ghost"}`}
-                  >
-                    {s.cta.label}
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                ) : (
-                  <a
-                    href={`#${s.cta.scrollTo}`}
-                    className={`btn w-full ${s.featured ? "btn-red" : "btn-ghost"}`}
-                  >
-                    {s.cta.label}
-                    <span aria-hidden="true">→</span>
-                  </a>
-                )}
+                <Button
+                  href={s.cta.href ?? `#${s.cta.scrollTo}`}
+                  variant={s.featured ? "red" : "ghost"}
+                  className="w-full"
+                  arrow="right"
+                >
+                  {s.cta.label}
+                </Button>
               </article>
             </Reveal>
           ))}
@@ -398,10 +389,9 @@ function CtaBand() {
                 with vetted candidates and an exact rate — usually within a week.
               </p>
             </div>
-            <Link href="/contact" className="btn btn-red shrink-0">
+            <Button href="/contact" variant="red" className="shrink-0" arrow="right">
               Book a call
-              <span aria-hidden="true">→</span>
-            </Link>
+            </Button>
           </div>
         </Reveal>
       </div>

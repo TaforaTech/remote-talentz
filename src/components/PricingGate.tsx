@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import LogoMark from "./LogoMark";
+import Button from "./Button";
 import PricingContent from "./PricingContent";
 
 // Simple access gate for the pricing page.
@@ -102,28 +103,13 @@ function Gate({ onUnlock }: { onUnlock: () => void }) {
                 </p>
               )}
 
-              <button type="submit" className="btn btn-red w-full">
+              <Button type="submit" variant="red" className="w-full" arrow="right">
                 Unlock pricing
-                <Arrow />
-              </button>
+              </Button>
             </form>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Arrow() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-      <path
-        d="M2 7.5h11M8.5 3L13 7.5 8.5 12"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

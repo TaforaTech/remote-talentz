@@ -4,7 +4,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
 import StartHiringButton from "./StartHiringButton";
-import ArrowBadge from "./ArrowBadge";
+import Button from "./Button";
 
 const ROLE_LINKS = [
   "LLM Engineer",
@@ -41,16 +41,9 @@ export default function Footer() {
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
                 <StartHiringButton variant="red" />
-                <Link
-                  href="/pricing"
-                  className="group btn btn-ghost !px-5 !py-2 text-base"
-                >
+                <Button href="/pricing" variant="ghost" size="md" arrow="badge">
                   See Pricing
-                  <ArrowBadge
-                    circleClassName="bg-[image:var(--rt-grad-action)]"
-                    arrowClassName="text-white"
-                  />
-                </Link>
+                </Button>
               </div>
             </Reveal>
           </div>

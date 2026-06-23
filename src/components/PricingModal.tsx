@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import LogoMark from "./LogoMark";
+import Button from "./Button";
 
 type PricingContextValue = {
   openPricing: () => void;
@@ -133,10 +134,9 @@ function PricingModal({ onClose }: { onClose: () => void }) {
                   className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-ink-faint focus:border-red focus:outline-none"
                 />
               </div>
-              <button type="submit" className="btn btn-red w-full">
+              <Button type="submit" variant="red" className="w-full" arrow="right">
                 View Pricing
-                <Arrow />
-              </button>
+              </Button>
               <p className="text-center text-2xs text-ink-faint">
                 No spam — one email with the complete rate card.
               </p>
@@ -157,9 +157,9 @@ function PricingModal({ onClose }: { onClose: () => void }) {
               breakdown is on its way to{" "}
               <span className="font-semibold text-ink">{email}</span>.
             </p>
-            <button onClick={onClose} className="btn btn-ink mt-8">
+            <Button onClick={onClose} variant="ink" className="mt-8">
               Done
-            </button>
+            </Button>
           </div>
         )}
       </div>
@@ -169,12 +169,4 @@ function PricingModal({ onClose }: { onClose: () => void }) {
 
 function Asterisk() {
   return <LogoMark className="size-[0.85em]" />;
-}
-
-function Arrow() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-      <path d="M2 7.5h11M8.5 3L13 7.5 8.5 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
 }
