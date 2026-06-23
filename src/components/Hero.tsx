@@ -48,7 +48,9 @@ export default function Hero() {
             >
               <StartHiringButton variant="red" className="!gap-1.5" />
               <Button
-                href="/contact"
+                href="/schedule"
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="ink"
                 size="md"
                 className="!gap-1.5"

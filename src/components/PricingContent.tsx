@@ -389,7 +389,7 @@ function CtaBand() {
                 with vetted candidates and an exact rate — usually within a week.
               </p>
             </div>
-            <Button href="/contact" variant="red" className="shrink-0" arrow="right">
+            <Button href="/schedule" target="_blank" rel="noopener noreferrer" variant="red" className="shrink-0" arrow="right">
               Book a call
             </Button>
           </div>
