@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <WhyRemoteTalentz />
       <MonitorSupport />
+      <WhyRemoteTalentz />
       <Clients />
       <TalentBridge />
       <Proof />
