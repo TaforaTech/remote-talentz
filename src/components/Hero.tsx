@@ -51,7 +51,7 @@ export default function Hero() {
                 href="/schedule"
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="ink"
+                variant="ghost"
                 size="md"
                 className="!gap-1.5"
                 arrow="badge"
