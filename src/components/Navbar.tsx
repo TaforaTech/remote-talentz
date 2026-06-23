@@ -182,6 +182,9 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <Button href="/contact" variant="ink" size="md" className="!gap-1.5" arrow="badge" iconLeft={<CalendarIcon />}>
+            Book a Call
+          </Button>
           <StartHiringButton variant="red" />
         </div>
 
@@ -262,10 +265,39 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <StartHiringButton variant="red" className="mt-8 w-full" onClick={closeAll} />
+          <Button
+            href="/contact"
+            variant="ink"
+            size="md"
+            className="mt-8 w-full !gap-1.5"
+            arrow="badge"
+            iconLeft={<CalendarIcon />}
+            onClick={closeAll}
+          >
+            Book a Call
+          </Button>
+          <StartHiringButton variant="red" className="mt-3 w-full" onClick={closeAll} />
         </div>
       )}
     </header>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="size-[1.15em] shrink-0"
+      aria-hidden="true"
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </svg>
   );
 }
 
