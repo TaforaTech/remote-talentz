@@ -18,12 +18,15 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-[#9c0018] to-[#6f0013] text-paper">
-      {/* Pre-footer CTA band — frosted glass over soft brand-colour blobs */}
-      <div className="container-rt pt-16">
-        <div className="relative">
+    <footer className="mt-48 bg-gradient-to-b from-[#9c0018] to-[#6f0013] text-paper sm:mt-44">
+      {/* Pre-footer CTA card — straddles the footer's top edge: the top half lifts
+          into the section above, the bottom half sits on the red footer. The lift is
+          exactly half the card's own height (translate % is relative to element height),
+          so the overlap stays even as the content reflows. */}
+      <div className="container-rt">
+        <div className="relative z-10 -translate-y-1/2 -mb-24 sm:-mb-28">
           {/* Clean white card */}
-          <div className="relative overflow-hidden rounded-[1.85rem] bg-paper px-6 py-10 text-center shadow-[0_40px_100px_-45px_rgba(0,0,0,0.45)] ring-1 ring-black/5 sm:px-12 sm:py-14">
+          <div className="relative overflow-hidden rounded-[1.85rem] bg-paper px-6 py-10 text-center shadow-[0_40px_100px_-45px_rgba(0,0,0,0.45)] ring-1 ring-black/5 transition-shadow duration-300 hover:ring-2 hover:ring-[#9c0018] sm:px-12 sm:py-14">
             <Reveal className="relative">
               <p className="flex items-center justify-center gap-2 font-mono text-2xs uppercase tracking-[0.24em] text-ink-soft">
                 <span className="relative flex size-1.5">
@@ -50,8 +53,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-rt py-16">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="container-rt pb-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Logo onDark />
             <p className="mt-5 max-w-sm text-sm text-paper/80">
@@ -117,7 +120,7 @@ export default function Footer() {
           remotetalentz<span className="text-red/40">✱</span>
         </p> */}
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/20 pt-6 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/20 pt-6 sm:flex-row">
           <p className="text-2xs text-paper/65">
             © {year} RemoteTalentz. All rights reserved.
           </p>
