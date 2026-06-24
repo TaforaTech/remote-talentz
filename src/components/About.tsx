@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import LogoMark from "./LogoMark";
-import StartHiringButton from "./StartHiringButton";
-import Button from "./Button";
 
 const FACTS = [
   { value: "85%", label: "lower cost per hire" },
@@ -67,18 +66,71 @@ const VALUES: { tag: string; title: string; body: string; icon: ReactNode }[] = 
   },
 ];
 
-const TEAM: { initials: string; name: string; role: string; bio: string }[] = [
+// `image` is optional: when set (e.g. "/team/tauhid-hasan.jpg" in /public),
+// the card shows the photo; until then it falls back to the initials avatar.
+const TEAM: {
+  initials: string;
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+}[] = [
   {
     initials: "TH",
     name: "Tauhid Hasan",
     role: "Founder & CEO",
     bio: "A software engineer who has shipped on both the client and the core technical side. He started RemoteTalentz to fix the gap he kept running into first-hand: great companies and great engineers who never found each other at a fair price.",
+    image: "/founder.jpg",
   },
   {
     initials: "FR",
-    name: "Faridur Reza",
+    name: "Mohammed Forid",
     role: "Co-founder & COO",
     bio: "Runs the engine behind every match — sourcing, vetting, onboarding and the day-to-day operations that keep embedded engineers shipping. He makes sure both sides of every placement are set up to last.",
+    image: "/co-founder.jpeg",
+  },
+  {
+    initials: "AR",
+    name: "AB Rahman",
+    role: "HR & Admin",
+    bio: "Keeps the team and the back office running — onboarding, contracts, payroll and the people side of every placement. He makes sure talent and clients alike feel looked after from day one.",
+    image: "/hr-ab.jpeg",
+  },
+];
+
+// Founder & co-founder messages, rendered as portrait-left / message-right cards.
+// Drop a photo in /public/team and set `image` to switch from the initials
+// portrait to the real headshot (same fallback pattern as the Leadership cards).
+const MESSAGES: {
+  initials: string;
+  name: string;
+  role: string;
+  eyebrow: string;
+  paragraphs: string[];
+  image?: string;
+}[] = [
+  {
+    initials: "TH",
+    name: "Tauhid Hasan",
+    role: "Founder & CEO",
+    eyebrow: "Why we exist",
+    image: "/founder.jpg",
+    paragraphs: [
+      "I've worked both sides of this — building product as an engineer, and watching good companies overpay to still hire the wrong person.",
+      "The problem was never a shortage of talent. It was the distance between the teams who needed it and the engineers who had it — in a market that overcharged clients and underpaid the people doing the work. RemoteTalentz closes that gap: the right engineer, matched fast, priced fairly, and paid what they're worth.",
+    ],
+  },
+  {
+    initials: "FR",
+    name: "Mohammed Forid",
+    role: "Co-founder & COO",
+    eyebrow: "From our co-founder",
+    image: "/co-founder.jpeg",
+    paragraphs: [
+      "At Remote Talentz, we believe exceptional talent knows no borders.",
+      "Drawing on my international experience and global network, I co-founded Remote Talentz with one mission: connect businesses with highly skilled professionals and build stronger, more efficient remote teams.",
+      "We're making hiring smarter, faster and more accessible — while creating real opportunities for talent worldwide. As the future of work evolves, our focus stays the same: helping organizations and professionals succeed together.",
+    ],
   },
 ];
 
@@ -107,7 +159,7 @@ export default function About() {
   return (
     <>
       {/* ── Intro ───────────────────────────────────────────────── */}
-      <section id="about" className="py-section">
+      <section id="about" className="py-section-tight">
         <div className="container-rt">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
             <Reveal>
@@ -122,18 +174,17 @@ export default function About() {
             <Reveal delay={120}>
               <div className="space-y-5 text-base text-ink-soft">
                 <p>
-                  RemoteTalentz started with a problem its founder kept hitting
-                  from both sides: companies paying a premium and still waiting
-                  months for the wrong candidate, while brilliant engineers a few
-                  timezones away never got a fair shot — or a fair payout.
+                  RemoteTalentz started with a problem its founder hit from both
+                  sides: companies paying a premium and still waiting months for
+                  the wrong candidate, while brilliant engineers a few timezones
+                  away never got a fair shot — or a fair payout.
                 </p>
                 <p>
                   So we don&apos;t run a job board. We run a vetted, AI-native
-                  network and do the slow, unglamorous work — deep interviews,
-                  live builds, reference checks — before you ever see a profile.
-                  When we send a shortlist, every name on it can do the job, at a
-                  price that&apos;s fair to you and a payout that&apos;s fair to
-                  them.
+                  network and do the slow work — deep interviews, live builds,
+                  reference checks — before you ever see a profile. Every name we
+                  send can do the job, at a price that&apos;s fair to you and a
+                  payout that&apos;s fair to them.
                 </p>
               </div>
 
@@ -152,82 +203,122 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Founder's note ──────────────────────────────────────── */}
-      <section className="bg-paper-raised py-section">
+      {/* ── Founder messages ────────────────────────────────────── */}
+      <section className="bg-paper-raised py-section-tight">
         <div className="container-rt">
-          <Reveal>
+          <Reveal className="max-w-3xl">
             <p className="eyebrow">
-              <LogoMark className="size-[0.85em]" /> Why we exist
+              <LogoMark className="size-[0.85em]" /> From the founders
             </p>
+            <h2 className="mt-5 font-display text-2xl font-semibold tracking-[-0.02em] text-ink sm:text-3xl">
+              The people closing the gap.
+            </h2>
           </Reveal>
 
-          <Reveal delay={120}>
-            <figure className="relative mt-8 overflow-hidden rounded-[1.5rem] border border-line bg-paper p-9 sm:p-14">
-              {/* Brand accent bar across the top */}
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-[3px]"
-                style={{ backgroundImage: "var(--rt-grad-action)" }}
-              />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-6 -top-10 select-none font-display text-[12rem] leading-none text-red/[0.06]"
-              >
-                &ldquo;
-              </span>
+          <div className="mt-14 space-y-8">
+            {MESSAGES.map((m, i) => (
+              <Reveal key={m.name} delay={i * 120}>
+                <figure className="group relative grid overflow-hidden rounded-[1.5rem] border border-line bg-paper lg:grid-cols-[19rem_1fr]">
+                  {/* Brand accent bar across the top */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 z-10 h-[3px]"
+                    style={{ backgroundImage: "var(--rt-grad-action)" }}
+                  />
 
-              <blockquote className="relative max-w-3xl space-y-5 font-display text-xl font-medium leading-snug tracking-[-0.01em] text-ink sm:text-2xl">
-                <p>
-                  I&apos;ve worked both sides of this — building product as an
-                  engineer, and watching good companies overpay and still hire
-                  the wrong person.
-                </p>
-                <p className="text-ink-soft">
-                  The problem was never a shortage of talent. It was the distance
-                  between the teams who needed it and the engineers who had it —
-                  and a market that overcharged clients while underpaying the
-                  people doing the work. RemoteTalentz exists to close that gap:
-                  the right engineer, matched fast, priced fairly, and paid what
-                  they&apos;re actually worth.
-                </p>
-              </blockquote>
+                  {/* Portrait — real headshot when `image` is set, else a
+                      branded initials panel */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-ink lg:aspect-auto lg:min-h-[24rem]">
+                    {m.image ? (
+                      <Image
+                        src={m.image}
+                        alt={m.name}
+                        fill
+                        sizes="(min-width: 1024px) 19rem, 100vw"
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                    ) : (
+                      <span
+                        className="absolute inset-0 grid place-items-center font-display text-7xl font-semibold tracking-tight text-white/95"
+                        style={{ backgroundImage: "var(--rt-grad-brand)" }}
+                        aria-hidden="true"
+                      >
+                        {m.initials}
+                      </span>
+                    )}
+                    {/* Bottom gradient + name plate over the portrait */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/35 to-transparent px-6 pb-5 pt-12">
+                      <p className="font-display text-lg font-semibold leading-tight text-white">
+                        {m.name}
+                      </p>
+                      <p className="mt-1 font-mono text-2xs uppercase tracking-[0.18em] text-white/70">
+                        {m.role}
+                      </p>
+                    </div>
+                  </div>
 
-              <figcaption className="relative mt-9 flex items-center gap-4 border-t border-line-soft pt-7">
-                <span
-                  className="grid size-12 shrink-0 place-items-center rounded-full font-display text-base font-semibold text-white"
-                  style={{ backgroundImage: "var(--rt-grad-brand)" }}
-                  aria-hidden="true"
-                >
-                  TH
-                </span>
-                <div>
-                  <p className="font-display text-base font-semibold text-ink">
-                    Tauhid Hasan
-                  </p>
-                  <p className="font-mono text-2xs uppercase tracking-[0.18em] text-red">
-                    Founder &amp; CEO
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-          </Reveal>
+                  {/* Message */}
+                  <div className="relative flex flex-col justify-center p-8 sm:p-12">
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute right-6 top-2 select-none font-display text-[10rem] leading-none text-red/[0.07]"
+                    >
+                      &rdquo;
+                    </span>
+
+                    <p className="relative font-mono text-2xs uppercase tracking-[0.28em] text-red">
+                      {m.eyebrow}
+                    </p>
+
+                    <blockquote className="relative mt-5 space-y-4 font-display text-xl font-medium leading-snug tracking-[-0.01em] text-ink sm:text-[1.6rem]">
+                      {m.paragraphs.map((p, j) => (
+                        <p
+                          key={j}
+                          className={
+                            j === 0
+                              ? undefined
+                              : "text-sm font-normal leading-relaxed tracking-normal text-ink-soft sm:text-base"
+                          }
+                        >
+                          {p}
+                        </p>
+                      ))}
+                    </blockquote>
+
+                    <figcaption className="relative mt-8 inline-flex items-center gap-3 border-t border-line-soft pt-6">
+                      <span
+                        className="h-px w-8 shrink-0 rounded-full"
+                        style={{ backgroundImage: "var(--rt-grad-brand)" }}
+                        aria-hidden="true"
+                      />
+                      <span className="font-display text-sm font-semibold text-ink">
+                        {m.name}
+                      </span>
+                      <span className="font-mono text-2xs uppercase tracking-[0.18em] text-ink-faint">
+                        {m.role}
+                      </span>
+                    </figcaption>
+                  </div>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── Mission + values ────────────────────────────────────── */}
-      <section className="py-section">
+      <section className="py-section-tight">
         <div className="container-rt">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">
               <LogoMark className="size-[0.85em]" /> Our mission
             </p>
-            <h2 className="mt-5 font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
-              Make elite engineering talent accessible to any team — on terms
-              that are fair to both sides.
+            <h2 className="mt-5 font-display text-2xl font-semibold tracking-[-0.02em] text-ink sm:text-3xl">
+              Elite engineering talent, on fair terms.
             </h2>
-            <p className="mt-5 text-lg text-ink-soft">
-              High value at an honest price for the client. A real payout for the
-              talent. And the support to make the match last.
+            <p className="mt-5 text-sm text-ink-soft sm:text-base">
+              Honest pricing for clients, real payouts for talent, and support
+              that makes the match last.
             </p>
           </Reveal>
 
@@ -255,28 +346,39 @@ export default function About() {
       </section>
 
       {/* ── Leadership ──────────────────────────────────────────── */}
-      <section className="bg-paper-raised py-section">
+      <section className="bg-paper-raised py-section-tight">
         <div className="container-rt">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">
-              <LogoMark className="size-[0.85em]" /> Leadership
+              <LogoMark className="size-[0.85em]" /> Team
             </p>
-            <h2 className="mt-5 font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
-              Built by people who&apos;ve lived both sides of the hire.
-            </h2>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {TEAM.map((m, i) => (
               <Reveal key={m.name} delay={i * 110}>
                 <article className="flex h-full flex-col rounded-2xl border border-line bg-paper p-8">
                   <div className="flex items-center gap-4">
                     <span
-                      className="grid size-14 shrink-0 place-items-center rounded-full font-display text-lg font-semibold text-white"
-                      style={{ backgroundImage: "var(--rt-grad-brand)" }}
-                      aria-hidden="true"
+                      className="relative grid size-16 shrink-0 place-items-center overflow-hidden rounded-full font-display text-lg font-semibold text-white"
+                      style={
+                        m.image
+                          ? undefined
+                          : { backgroundImage: "var(--rt-grad-brand)" }
+                      }
+                      aria-hidden={m.image ? undefined : "true"}
                     >
-                      {m.initials}
+                      {m.image ? (
+                        <Image
+                          src={m.image}
+                          alt={m.name}
+                          fill
+                          sizes="64px"
+                          className="object-cover"
+                        />
+                      ) : (
+                        m.initials
+                      )}
                     </span>
                     <div>
                       <p className="font-display text-lg font-semibold text-ink">
@@ -287,7 +389,6 @@ export default function About() {
                       </p>
                     </div>
                   </div>
-                  <p className="mt-6 text-sm text-ink-soft">{m.bio}</p>
                 </article>
               </Reveal>
             ))}
@@ -296,13 +397,13 @@ export default function About() {
       </section>
 
       {/* ── Testimonials ────────────────────────────────────────── */}
-      <section className="py-section">
+      <section className="py-section-tight">
         <div className="container-rt">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">
               <LogoMark className="size-[0.85em]" /> In their words
             </p>
-            <h2 className="mt-5 font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
+            <h2 className="mt-5 font-display text-2xl font-semibold tracking-[-0.02em] text-ink sm:whitespace-nowrap sm:text-3xl">
               Teams that hired the right engineer — fast.
             </h2>
           </Reveal>
@@ -334,76 +435,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* ── Contact band ────────────────────────────────────────── */}
-      <section className="bg-paper-raised py-section">
-        <div className="container-rt grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1fr]">
-          <Reveal>
-            <p className="eyebrow">
-              <LogoMark className="size-[0.85em]" /> Get in touch
-            </p>
-            <h2 className="mt-5 font-display text-3xl font-semibold tracking-[-0.02em] text-ink sm:text-4xl">
-              Tell us who you need.
-            </h2>
-            <p className="mt-6 max-w-md text-base text-ink-soft">
-              Share the role and the stack and we&apos;ll come back within one
-              business day with availability and a plan to get your shortlist
-              moving.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <StartHiringButton variant="red" />
-              <Button href="/contact" variant="ghost" size="md" arrow="badge">
-                Contact us
-              </Button>
-            </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
-              <ContactCell label="Email">
-                <a
-                  href="mailto:hello@remotetalentz.com"
-                  className="font-display text-lg font-semibold text-ink transition-colors hover:text-red"
-                >
-                  hello@remotetalentz.com
-                </a>
-              </ContactCell>
-              <ContactCell label="Phone">
-                <span className="font-display text-lg font-semibold text-ink-faint">
-                  +1 (000) 000-0000
-                </span>
-              </ContactCell>
-              <ContactCell label="Response time">
-                <span className="text-sm text-ink-soft">
-                  Within one business day
-                </span>
-              </ContactCell>
-              <ContactCell label="Where we work">
-                <span className="text-sm text-ink-soft">
-                  Fully remote, across 30+ countries
-                </span>
-              </ContactCell>
-            </dl>
-          </Reveal>
-        </div>
-      </section>
     </>
-  );
-}
-
-function ContactCell({
-  label,
-  children,
-}: {
-  label: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="bg-paper-raised p-6">
-      <dt className="font-mono text-2xs uppercase tracking-[0.2em] text-ink-faint">
-        {label}
-      </dt>
-      <dd className="mt-2">{children}</dd>
-    </div>
   );
 }
