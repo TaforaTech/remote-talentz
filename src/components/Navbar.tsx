@@ -51,6 +51,7 @@ export default function Navbar() {
   };
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 bg-paper/90 backdrop-blur-md transition-shadow duration-300 ${
         scrolled
@@ -202,10 +203,16 @@ export default function Navbar() {
           </div>
         </button>
       </nav>
+    </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — rendered as a SIBLING of <header>, not a child of it.
+          The header sets `backdrop-blur` (backdrop-filter), which makes it the
+          containing block for any position:fixed descendant. Nested, the
+          drawer's top/bottom would resolve against the 64px header and collapse
+          it to a sliver — letting the page bleed through behind the menu. As a
+          viewport-level fixed sibling it fills the screen correctly. */}
       {mobileOpen && (
-        <div className="anim-fade-up fixed inset-x-0 bottom-0 top-[var(--rt-nav-h)] overflow-y-auto border-t border-line-soft bg-paper px-gutter pb-10 pt-6 lg:hidden">
+        <div className="anim-fade-up fixed inset-x-0 bottom-0 top-[var(--rt-nav-h)] z-40 overflow-y-auto border-t border-line-soft bg-paper px-gutter pb-10 pt-6 lg:hidden">
           <button
             className="flex w-full items-center justify-between py-4 text-left font-display text-xl font-semibold"
             aria-expanded={mobileTalents}
@@ -280,7 +287,7 @@ export default function Navbar() {
           <StartHiringButton variant="red" className="mt-3 w-full" onClick={closeAll} />
         </div>
       )}
-    </header>
+    </>
   );
 }
 

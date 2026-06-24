@@ -176,7 +176,7 @@ export default function Proof() {
     <section className="relative overflow-hidden bg-white py-section">
       <div className="container-rt">
         <Reveal className="text-center">
-          <h2 className="mx-auto whitespace-nowrap font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+          <h2 className="mx-auto text-balance font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
             Save up to 85% per hire
           </h2>
         </Reveal>
