@@ -96,13 +96,7 @@ export default function WhyRemoteTalentz() {
               </span>
 
               <div className="relative flex items-center justify-between">
-                <span className="relative grid size-12 place-items-center overflow-hidden rounded-xl bg-red-tint text-red transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-white [&_svg]:relative [&_svg]:size-[1.35rem]">
-                  {/* Gradient fill fades in via opacity — background-image can't be transitioned */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100"
-                    style={{ backgroundImage: "var(--rt-grad-action)" }}
-                  />
+                <span className="relative grid size-[3.25rem] place-items-center rounded-xl bg-line-soft text-ink-faint transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-red [&_svg]:relative [&_svg]:size-[1.6rem]">
                   {r.icon}
                 </span>
                 <span className="font-mono text-2xs uppercase tracking-[0.32em] text-ink-faint">

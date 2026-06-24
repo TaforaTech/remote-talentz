@@ -23,10 +23,8 @@ const PILLARS: {
     body: "No more juggling multiple payouts or HR paperwork. We process every contractor payment and bill you with one clean statement — keeping your focus on growth instead of the back office.",
     icon: (
       <svg {...iconAttrs}>
-        <path d="M6 3.5h9l3 3v14H6z" />
-        <path d="M9 9h6M9 12.5h6M9 16h3.5" />
-        <circle cx="17" cy="16.5" r="3" />
-        <path d="M17 15.2v2.6M16 16.5h2" />
+        <path d="M7 2.5h7l3.5 3.5V21.5l-2.2-1.5-2.2 1.5-2.1-1.5-2.2 1.5-2.2-1.5L7 21.5z" />
+        <path d="M10 9h4M10 12.5h4" />
       </svg>
     ),
   },
@@ -36,11 +34,8 @@ const PILLARS: {
     body: "Dedicated tracking tools and a hands-on oversight team keep every contractor's day in full view — so time theft, idle hours, and slipping performance get caught long before they ever become your problem.",
     icon: (
       <svg {...iconAttrs}>
-        <rect x="5" y="3.5" width="14" height="17" rx="2" />
-        <path d="M9 3.5h6v2.5H9z" />
-        <path d="M8.5 11h3M8.5 15h6" />
-        <circle cx="15.5" cy="11" r="2" />
-        <path d="M15.5 10v1l.7.6" />
+        <path d="M2.5 12s3.5-6.5 9.5-6.5S21.5 12 21.5 12s-3.5 6.5-9.5 6.5S2.5 12 2.5 12z" />
+        <circle cx="12" cy="12" r="3" />
       </svg>
     ),
   },
@@ -50,7 +45,9 @@ const PILLARS: {
     body: "Through steady check-ins, wellness scores, and pulse surveys, we sense when engagement starts to dip — letting you stop burnout early, lift morale, and keep the people you fought to hire.",
     icon: (
       <svg {...iconAttrs}>
-        <path d="M12 21s-6.5-4.2-8.5-8.2A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 8.5 5.8C18.5 16.8 12 21 12 21z" />
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3.5 20a5.5 5.5 0 0 1 11 0" />
+        <path d="M16.5 13.2c1-1.1 2.9-.8 3.4.6.5 1.4-1 2.9-3.4 4.2-2.4-1.3-3.9-2.8-3.4-4.2.5-1.4 2.4-1.7 3.4-.6z" />
       </svg>
     ),
   },
@@ -60,8 +57,9 @@ const PILLARS: {
     body: "No 401(k), insurance, or payroll-tax burden to manage. Just one flat monthly rate with nothing hidden — stay compliant, trim overhead, and scale quickly without piling on HR.",
     icon: (
       <svg {...iconAttrs}>
-        <path d="M12 2.5l7 2.5v6c0 4.4-3 7.6-7 8.5-4-0.9-7-4.1-7-8.5v-6z" />
-        <path d="M9 11.5l2 2 4-4.5" />
+        <circle cx="12" cy="12" r="9" />
+        <path d="M14.5 9.2c-.5-1-1.6-1.5-2.8-1.3-1.3.2-2.2 1.1-2.2 2.1 0 1.2 1.1 1.7 2.5 2 1.6.3 2.8.9 2.8 2.2 0 1.1-1 2-2.3 2.2-1.3.2-2.5-.4-3-1.4" />
+        <path d="M12 6.2v1.6M12 16.2v1.6" />
       </svg>
     ),
   },
@@ -89,13 +87,7 @@ export default function MonitorSupport() {
           <Reveal key={p.title} delay={i * 130} className="group h-full">
             <article className="relative flex h-full transform-gpu flex-col overflow-hidden rounded-[1.25rem] border border-line-soft bg-paper-raised p-8 shadow-[0_22px_50px_-34px_rgba(12,11,10,0.42)] transition-[transform,box-shadow,border-color] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform group-hover:-translate-y-1.5 group-hover:border-red/30 group-hover:shadow-[0_34px_70px_-38px_rgba(12,11,10,0.5)]">
               <div className="relative flex items-center gap-4">
-                <span className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-red-tint text-red transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-white [&_svg]:relative [&_svg]:size-[1.35rem]">
-                  {/* Gradient fill fades in via opacity — background-image can't be transitioned */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100"
-                    style={{ backgroundImage: "var(--rt-grad-action)" }}
-                  />
+                <span className="relative grid size-[3.25rem] shrink-0 place-items-center rounded-xl bg-line-soft text-ink-faint transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-red [&_svg]:relative [&_svg]:size-[1.6rem]">
                   {p.icon}
                 </span>
                 <h3 className="font-display text-xl font-semibold leading-tight tracking-[-0.01em] text-ink">

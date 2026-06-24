@@ -533,31 +533,24 @@ body {
 }
 
 .step-node {
-  /* Brand-gradient ring on the border via padding-box (interior) + border-box
-     (gradient) layering, since a border-color can't be a gradient. 4px = a
-     bold ring. */
-  background: linear-gradient(var(--rt-paper-raised), var(--rt-paper-raised))
-      padding-box,
-    var(--rt-grad-brand) border-box;
-  border: 4px solid transparent;
+  /* Plain circle: a gray border at rest, no fill. The border + number turn
+     red while the highlight rests on this step. */
+  background: var(--rt-paper-raised);
+  border: 2px solid var(--rt-line);
   color: var(--rt-ink-faint);
   animation: rt-step-node 9s ease-in-out infinite;
 }
 @keyframes rt-step-node {
   0%,
   30% {
-    /* Active: the ring fills in with the brand gradient, white number. */
-    background: var(--rt-grad-brand) border-box;
-    border-color: transparent;
-    color: #fff;
+    /* Active: border + number go red. */
+    border-color: var(--rt-red);
+    color: var(--rt-red);
   }
   36%,
   100% {
-    /* Resting: gradient ring, white interior, faint number. */
-    background: linear-gradient(var(--rt-paper-raised), var(--rt-paper-raised))
-        padding-box,
-      var(--rt-grad-brand) border-box;
-    border-color: transparent;
+    /* Resting: gray border, faint number. */
+    border-color: var(--rt-line);
     color: var(--rt-ink-faint);
   }
 }
