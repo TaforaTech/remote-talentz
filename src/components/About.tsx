@@ -110,6 +110,17 @@ const MESSAGES: {
   image?: string;
 }[] = [
   {
+    initials: "TH",
+    name: "Tauhid Hasan",
+    role: "Founder & CEO",
+    eyebrow: "Why we exist",
+    image: "/founder.jpg",
+    paragraphs: [
+      "I've worked both sides of this — building product as an engineer, and watching good companies overpay to still hire the wrong person.",
+      "The problem was never a shortage of talent. It was the distance between the teams who needed it and the engineers who had it — in a market that overcharged clients and underpaid the people doing the work. RemoteTalentz closes that gap: the right engineer, matched fast, priced fairly, and paid what they're worth.",
+    ],
+  },
+  {
     initials: "FR",
     name: "Mohammed Forid",
     role: "Co-founder & COO",
