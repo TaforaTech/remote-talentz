@@ -4,7 +4,7 @@ import About from "@/components/About";
 export const metadata: Metadata = {
   title: "About Us — RemoteTalentz",
   description:
-    "A network, not a marketplace. Meet the AI-native talent network behind RemoteTalentz — how we vet, match, and support elite remote engineers.",
+    "Why RemoteTalentz exists: founder Tauhid Hasan built it to close the gap between great teams and great engineers — the right match, fairly priced for clients and fairly paid for talent.",
 };
 
 export default function AboutPage() {

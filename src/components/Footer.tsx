@@ -33,11 +33,11 @@ export default function Footer() {
                 Talent has no timezone
               </p>
               <h2 className="mt-5 whitespace-nowrap font-display text-2xl font-bold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[2.7rem]">
-                Hire who your rival&apos;s still interviewing.
+                Elite AI-native talent, matched in days.
               </h2>
-              <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
-                Brief us today, meet an interview-ready shortlist in 3 days —
-                elite AI-native talent, in your timezone, for up to 85% less.
+              <p className="mx-auto mt-5 max-w-2xl text-base text-ink-soft">
+                Brief us today, meet an interview-ready shortlist in 3 days, 
+                elite AI-native talent, in your timezone, for up to 85% less. No upfront cost.
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
                 <StartHiringButton variant="red" />
