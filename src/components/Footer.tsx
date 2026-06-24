@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="container-rt">
         <div className="relative z-10 -translate-y-1/2 -mb-24 sm:-mb-28">
           {/* Clean white card */}
-          <div className="relative overflow-hidden rounded-[1.85rem] bg-paper px-6 py-10 text-center shadow-[0_40px_100px_-45px_rgba(0,0,0,0.45)] ring-1 ring-black/5 transition-shadow duration-300 hover:ring-2 hover:ring-[#9c0018] sm:px-12 sm:py-14">
+          <div className="relative overflow-hidden rounded-[1.85rem] bg-paper px-6 py-10 text-center shadow-[0_40px_100px_-45px_rgba(0,0,0,0.45)] ring-1 ring-black/5 transition-shadow duration-500 ease-out hover:shadow-[0_28px_55px_-22px_rgba(156,0,24,0.28),0_50px_110px_-40px_rgba(0,0,0,0.5)] sm:px-12 sm:py-14">
             <Reveal className="relative">
               <p className="flex items-center justify-center gap-2 font-mono text-2xs uppercase tracking-[0.24em] text-ink-soft">
                 <span className="relative flex size-1.5">
