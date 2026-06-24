@@ -86,24 +86,8 @@ export default function MonitorSupport() {
 
       <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2">
         {PILLARS.map((p, i) => (
-          <Reveal key={p.title} delay={i * 130}>
-            <article className="group relative flex h-full transform-gpu flex-col overflow-hidden rounded-[1.25rem] border border-line-soft bg-paper-raised p-8 shadow-[0_22px_50px_-34px_rgba(12,11,10,0.42)] transition-[transform,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform hover:-translate-y-2 hover:border-red/30">
-              {/* Brand accent bar — draws across the top on hover */}
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transform-gpu transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-x-100"
-                style={{ backgroundImage: "var(--rt-grad-action)" }}
-              />
-              {/* Soft red spotlight that blooms from the corner on hover */}
-              <span
-                aria-hidden
-                className="pointer-events-none absolute -right-12 -top-14 size-44 transform-gpu rounded-full opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[opacity] group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(closest-side, rgba(255,48,64,0.20), transparent 72%)",
-                }}
-              />
-
+          <Reveal key={p.title} delay={i * 130} className="group h-full">
+            <article className="relative flex h-full transform-gpu flex-col overflow-hidden rounded-[1.25rem] border border-line-soft bg-paper-raised p-8 shadow-[0_22px_50px_-34px_rgba(12,11,10,0.42)] transition-[transform,box-shadow,border-color] duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform group-hover:-translate-y-1.5 group-hover:border-red/30 group-hover:shadow-[0_34px_70px_-38px_rgba(12,11,10,0.5)]">
               <div className="relative flex items-center gap-4">
                 <span className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-red-tint text-red transition-colors duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:text-white [&_svg]:relative [&_svg]:size-[1.35rem]">
                   {/* Gradient fill fades in via opacity — background-image can't be transitioned */}

@@ -184,8 +184,8 @@ export default function Proof() {
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 90}>
-              <div className="group flex h-full min-h-[14rem] flex-col justify-between rounded-2xl border border-line-soft bg-paper-raised p-7 shadow-[0_20px_50px_-30px_rgba(12,11,10,0.35)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-transparent hover:bg-gradient-to-b hover:from-[#9c0018] hover:to-[#6f0013] hover:shadow-[0_30px_80px_-24px_rgba(156,0,24,0.6)]">
-                <p className="font-display text-5xl font-bold leading-none tracking-tight text-ink transition-colors duration-300 group-hover:text-white">
+              <div className="group flex h-full min-h-[14rem] flex-col justify-between rounded-2xl border border-line-soft bg-paper-raised p-7 shadow-[0_20px_50px_-30px_rgba(12,11,10,0.35)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_28px_60px_-28px_rgba(227,0,27,0.25)]">
+                <p className="font-display text-5xl font-bold leading-none tracking-tight text-ink">
                   <CountUp end={s.end} decimals={s.decimals ?? 0} suffix={s.suffix} />
                   {s.unit && (
                     <span className="ml-2 align-baseline text-2xl font-semibold">
@@ -193,7 +193,7 @@ export default function Proof() {
                     </span>
                   )}
                 </p>
-                <p className="text-sm text-ink-soft transition-colors duration-300 group-hover:text-white/80">{s.label}</p>
+                <p className="text-sm text-ink-soft">{s.label}</p>
               </div>
             </Reveal>
           ))}
