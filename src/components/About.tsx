@@ -216,9 +216,17 @@ export default function About() {
           </Reveal>
 
           <div className="mt-14 space-y-8">
-            {MESSAGES.map((m, i) => (
+            {MESSAGES.map((m, i) => {
+              const reversed = i % 2 === 1;
+              return (
               <Reveal key={m.name} delay={i * 120}>
-                <figure className="group relative grid overflow-hidden rounded-[1.5rem] border border-line bg-paper lg:grid-cols-[19rem_1fr]">
+                <figure
+                  className={`group relative grid overflow-hidden rounded-[1.5rem] border border-line bg-paper ${
+                    reversed
+                      ? "lg:grid-cols-[1fr_19rem]"
+                      : "lg:grid-cols-[19rem_1fr]"
+                  }`}
+                >
                   {/* Brand accent bar across the top */}
                   <span
                     aria-hidden
@@ -228,7 +236,11 @@ export default function About() {
 
                   {/* Portrait — real headshot when `image` is set, else a
                       branded initials panel */}
-                  <div className="relative aspect-[4/5] overflow-hidden bg-ink lg:aspect-auto lg:min-h-[24rem]">
+                  <div
+                    className={`relative aspect-[4/5] overflow-hidden bg-ink lg:aspect-auto lg:min-h-[24rem] ${
+                      reversed ? "lg:order-2" : ""
+                    }`}
+                  >
                     {m.image ? (
                       <Image
                         src={m.image}
@@ -247,7 +259,11 @@ export default function About() {
                       </span>
                     )}
                     {/* Bottom gradient + name plate over the portrait */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/35 to-transparent px-6 pb-5 pt-12">
+                    <div
+                      className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/35 to-transparent px-6 pb-5 pt-12 ${
+                        reversed ? "text-right" : ""
+                      }`}
+                    >
                       <p className="font-display text-lg font-semibold leading-tight text-white">
                         {m.name}
                       </p>
@@ -258,10 +274,16 @@ export default function About() {
                   </div>
 
                   {/* Message */}
-                  <div className="relative flex flex-col justify-center p-8 sm:p-12">
+                  <div
+                    className={`relative flex flex-col justify-center p-8 sm:p-12 ${
+                      reversed ? "lg:text-right" : ""
+                    }`}
+                  >
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute right-6 top-2 select-none font-display text-[10rem] leading-none text-red/[0.07]"
+                      className={`pointer-events-none absolute top-2 select-none font-display text-[10rem] leading-none text-red/[0.07] ${
+                        reversed ? "left-6" : "right-6"
+                      }`}
                     >
                       &rdquo;
                     </span>
@@ -285,7 +307,11 @@ export default function About() {
                       ))}
                     </blockquote>
 
-                    <figcaption className="relative mt-8 inline-flex items-center gap-3 border-t border-line-soft pt-6">
+                    <figcaption
+                      className={`relative mt-8 inline-flex items-center gap-3 border-t border-line-soft pt-6 ${
+                        reversed ? "lg:ml-auto lg:flex-row-reverse" : ""
+                      }`}
+                    >
                       <span
                         className="h-px w-8 shrink-0 rounded-full"
                         style={{ backgroundImage: "var(--rt-grad-brand)" }}
@@ -301,7 +327,8 @@ export default function About() {
                   </div>
                 </figure>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
