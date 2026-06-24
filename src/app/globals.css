@@ -160,7 +160,7 @@ body {
 }
 
 ::selection {
-  background: var(--rt-red);
+  background: #4d4d4d;
   color: var(--rt-paper);
 }
 
