@@ -215,7 +215,7 @@ export default function About() {
             </h2>
           </Reveal>
 
-          <div className="mt-14 space-y-8">
+          <div className="mt-14 space-y-12">
             {MESSAGES.map((m, i) => {
               const reversed = i % 2 === 1;
               return (
@@ -227,17 +227,10 @@ export default function About() {
                       : "lg:grid-cols-[19rem_1fr]"
                   }`}
                 >
-                  {/* Brand accent bar across the top */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 z-10 h-[3px]"
-                    style={{ backgroundImage: "var(--rt-grad-action)" }}
-                  />
-
                   {/* Portrait — real headshot when `image` is set, else a
                       branded initials panel */}
                   <div
-                    className={`relative aspect-[4/5] overflow-hidden bg-ink lg:aspect-auto lg:min-h-[24rem] ${
+                    className={`relative aspect-[4/5] overflow-hidden bg-ink lg:aspect-auto lg:min-h-[18rem] ${
                       reversed ? "lg:order-2" : ""
                     }`}
                   >
@@ -275,13 +268,13 @@ export default function About() {
 
                   {/* Message */}
                   <div
-                    className={`relative flex flex-col justify-center p-8 sm:p-12 ${
+                    className={`relative flex flex-col justify-center p-7 sm:p-10 ${
                       reversed ? "lg:text-right" : ""
                     }`}
                   >
                     <span
                       aria-hidden
-                      className={`pointer-events-none absolute top-2 select-none font-display text-[10rem] leading-none text-red/[0.07] ${
+                      className={`pointer-events-none absolute top-2 select-none font-display text-[6rem] leading-none text-red/[0.07] ${
                         reversed ? "left-6" : "right-6"
                       }`}
                     >
