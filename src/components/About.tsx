@@ -267,16 +267,10 @@ export default function About() {
                   </div>
 
                   {/* Message */}
-                  <div
-                    className={`relative flex flex-col justify-center p-7 sm:p-10 ${
-                      reversed ? "lg:text-right" : ""
-                    }`}
-                  >
+                  <div className="relative flex flex-col justify-center p-7 sm:p-10">
                     <span
                       aria-hidden
-                      className={`pointer-events-none absolute top-2 select-none font-display text-[6rem] leading-none text-red/[0.07] ${
-                        reversed ? "left-6" : "right-6"
-                      }`}
+                      className="pointer-events-none absolute right-6 top-2 select-none font-display text-[6rem] leading-none text-red/[0.07]"
                     >
                       &rdquo;
                     </span>
@@ -302,7 +296,7 @@ export default function About() {
 
                     <figcaption
                       className={`relative mt-8 inline-flex items-center gap-3 border-t border-line-soft pt-6 ${
-                        reversed ? "lg:ml-auto lg:flex-row-reverse" : ""
+                        reversed ? "lg:ml-auto lg:flex-row-reverse lg:text-right" : ""
                       }`}
                     >
                       <span
