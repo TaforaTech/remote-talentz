@@ -22,7 +22,7 @@ const VALUES: { tag: string; title: string; body: string; icon: ReactNode }[] = 
   {
     tag: "Right fit",
     title: "The right match, not the fastest",
-    body: "We vet for the problem you're actually solving — not keyword overlap on a résumé. Every shortlist is people who can do the job, proven before you ever see a name.",
+    body: "We vet for the problem you're actually solving not keyword overlap on a resume. Every shortlist is people who can do the job, proven before you ever see a name.",
     icon: (
       <svg {...iconAttrs}>
         <circle cx="12" cy="12" r="8.5" />
@@ -34,7 +34,7 @@ const VALUES: { tag: string; title: string; body: string; icon: ReactNode }[] = 
   {
     tag: "Fair price",
     title: "Elite quality, honestly priced",
-    body: "Up to 85% less than a local hire, with no upfront cost and pay-only-when-you-hire. High value shouldn't mean a premium you can't justify to your board.",
+    body: "Up to 85% less than a local hire, with no upfront cost and pay only when you hire. High value shouldn't mean a premium you can't justify to your board.",
     icon: (
       <svg {...iconAttrs}>
         <path d="M12 2.5l8.5 4.9v9.2L12 21.5l-8.5-4.9V7.4z" />
@@ -45,7 +45,7 @@ const VALUES: { tag: string; title: string; body: string; icon: ReactNode }[] = 
   {
     tag: "Fair payout",
     title: "Talent paid what they're worth",
-    body: "The engineer doing the work earns what they actually deserve. We close the gap without skimming it — fair to the client, fair to the talent, on both ends of every match.",
+    body: "The engineer doing the work earns what they actually deserve. We close the gap without skimming it fair to the client, fair to the talent, on both ends of every match.",
     icon: (
       <svg {...iconAttrs}>
         <circle cx="12" cy="12" r="8.5" />
@@ -56,7 +56,7 @@ const VALUES: { tag: string; title: string; body: string; icon: ReactNode }[] = 
   {
     tag: "Built to last",
     title: "Embedded, not outsourced",
-    body: "Your engineer joins standups, ships to your repo and grows with the team — in your timezone. We stay in the loop to keep the match working long after week one.",
+    body: "Your engineer joins standups, ships to your repo and grows with the team in your timezone. We stay in the loop to keep the match working long after week one.",
     icon: (
       <svg {...iconAttrs}>
         <path d="M9 12.5l2 2 4.5-4.5" />
@@ -110,17 +110,6 @@ const MESSAGES: {
   image?: string;
 }[] = [
   {
-    initials: "TH",
-    name: "Tauhid Hasan",
-    role: "Founder & CEO",
-    eyebrow: "Why we exist",
-    image: "/founder.jpg",
-    paragraphs: [
-      "I've worked both sides of this — building product as an engineer, and watching good companies overpay to still hire the wrong person.",
-      "The problem was never a shortage of talent. It was the distance between the teams who needed it and the engineers who had it — in a market that overcharged clients and underpaid the people doing the work. RemoteTalentz closes that gap: the right engineer, matched fast, priced fairly, and paid what they're worth.",
-    ],
-  },
-  {
     initials: "FR",
     name: "Mohammed Forid",
     role: "Co-founder & COO",
@@ -129,7 +118,7 @@ const MESSAGES: {
     paragraphs: [
       "At Remote Talentz, we believe exceptional talent knows no borders.",
       "Drawing on my international experience and global network, I co-founded Remote Talentz with one mission: connect businesses with highly skilled professionals and build stronger, more efficient remote teams.",
-      "We're making hiring smarter, faster and more accessible — while creating real opportunities for talent worldwide. As the future of work evolves, our focus stays the same: helping organizations and professionals succeed together.",
+      "We're making hiring smarter, faster and more accessible while creating real opportunities for talent worldwide. As the future of work evolves, our focus stays the same: helping organizations and professionals succeed together.",
     ],
   },
 ];
@@ -137,7 +126,7 @@ const MESSAGES: {
 const QUOTES = [
   {
     quote:
-      "We briefed them on a Monday and had a RAG engineer committing code the following week. The vetting is real — it felt like extending our own team, not outsourcing.",
+      "We briefed them on a Monday and had a RAG engineer committing code the following week. The vetting is real it felt like extending our own team, not outsourcing.",
     name: "Maya Chen",
     role: "CTO, Series A fintech",
   },
@@ -149,7 +138,7 @@ const QUOTES = [
   },
   {
     quote:
-      "Our founding engineer came through RemoteTalentz. Eighteen months later he runs a team of five — also hired through them.",
+      "Our founding engineer came through RemoteTalentz. Eighteen months later he runs a team of five also hired through them.",
     name: "Sofia Lindqvist",
     role: "Founder, AI tooling startup",
   },
@@ -177,12 +166,12 @@ export default function About() {
                   RemoteTalentz started with a problem its founder hit from both
                   sides: companies paying a premium and still waiting months for
                   the wrong candidate, while brilliant engineers a few timezones
-                  away never got a fair shot — or a fair payout.
+                  away never got a fair shot or a fair payout.
                 </p>
                 <p>
                   So we don&apos;t run a job board. We run a vetted, AI-native
-                  network and do the slow work — deep interviews, live builds,
-                  reference checks — before you ever see a profile. Every name we
+                  network and do the slow work deep interviews, live builds,
+                  reference checks before you ever see a profile. Every name we
                   send can do the job, at a price that&apos;s fair to you and a
                   payout that&apos;s fair to them.
                 </p>
