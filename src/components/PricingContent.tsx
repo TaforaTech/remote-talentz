@@ -341,7 +341,7 @@ function PaymentTerms() {
 /* ---------- 7. FAQ ---------- */
 function Faqs() {
   return (
-    <section className="pb-section-tight">
+    <section id="faq" className="scroll-mt-nav pb-section-tight">
       <div className="container-rt">
         <Reveal className="mx-auto max-w-3xl">
           <p className="eyebrow justify-center text-center">

@@ -11,15 +11,22 @@ import { popularRoles, emergingRoles } from "@/lib/roles";
 const NAV_LINKS = [
   { label: "Our Process", href: "/our-process" },
   { label: "About Us", href: "/about" },
+];
+
+const RESOURCE_LINKS = [
   { label: "Contact", href: "/contact" },
+  { label: "FAQ", href: "/pricing#faq" },
 ];
 
 export default function Navbar() {
   const [megaOpen, setMegaOpen] = useState(false);
+  const [resOpen, setResOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileTalents, setMobileTalents] = useState(false);
+  const [mobileResources, setMobileResources] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -44,10 +51,21 @@ export default function Navbar() {
     closeTimer.current = setTimeout(() => setMegaOpen(false), 140);
   };
 
+  const openRes = () => {
+    if (resTimer.current) clearTimeout(resTimer.current);
+    setResOpen(true);
+  };
+  const scheduleCloseRes = () => {
+    if (resTimer.current) clearTimeout(resTimer.current);
+    resTimer.current = setTimeout(() => setResOpen(false), 140);
+  };
+
   const closeAll = () => {
     setMegaOpen(false);
+    setResOpen(false);
     setMobileOpen(false);
     setMobileTalents(false);
+    setMobileResources(false);
   };
 
   return (
@@ -180,6 +198,57 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
+
+          {/* Resources — dropdown on hover */}
+          <div
+            className="relative"
+            onMouseEnter={openRes}
+            onMouseLeave={scheduleCloseRes}
+          >
+            <button
+              className="nav-link flex items-center gap-1.5"
+              aria-expanded={resOpen}
+              aria-haspopup="true"
+              data-active={resOpen}
+              onClick={() => setResOpen((v) => !v)}
+            >
+              Resources
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                aria-hidden="true"
+                className={`transition-transform duration-300 ${resOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {resOpen && (
+              <div className="mega-panel absolute right-0 top-full w-56 pt-4">
+                <ul className="overflow-hidden rounded-2xl border border-line bg-paper-raised p-2 shadow-[0_24px_70px_-20px_rgba(12,11,10,0.35)]">
+                  {RESOURCE_LINKS.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        onClick={closeAll}
+                        className="group flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-red-tint hover:text-red"
+                      >
+                        {l.label}
+                        <span
+                          aria-hidden="true"
+                          className="-translate-x-1 text-red opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100"
+                        >
+                          →
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -267,9 +336,29 @@ export default function Navbar() {
             <Link href="/about" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
               About Us
             </Link>
-            <Link href="/contact" onClick={closeAll} className="block py-4 font-display text-xl font-semibold">
-              Contact
-            </Link>
+            <div>
+              <button
+                className="flex w-full items-center justify-between py-4 text-left font-display text-xl font-semibold"
+                aria-expanded={mobileResources}
+                onClick={() => setMobileResources((v) => !v)}
+              >
+                Resources
+                <span className={`text-red transition-transform duration-300 ${mobileResources ? "rotate-45" : ""}`} aria-hidden="true">
+                  +
+                </span>
+              </button>
+              {mobileResources && (
+                <ul className="space-y-2.5 border-l-2 border-red pb-4 pl-5">
+                  {RESOURCE_LINKS.map((l) => (
+                    <li key={l.href}>
+                      <Link href={l.href} onClick={closeAll} className="text-base text-ink-soft transition-colors hover:text-red">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
