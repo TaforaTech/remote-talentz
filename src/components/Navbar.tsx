@@ -252,10 +252,14 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href="/schedule" target="_blank" rel="noopener noreferrer" variant="ghost" size="md" className="!gap-1.5" iconLeft={<CalendarIcon />}>
+          <Button href="/schedule" target="_blank" rel="noopener noreferrer" variant="ghost" size="sm" className="!gap-1.5 !py-1.5 !text-2xs" iconLeft={<CalendarIcon />}>
             Book a Call
           </Button>
-          <StartHiringButton variant="red" />
+          <StartHiringButton
+            variant="red"
+            size="sm"
+            className="!py-1.5 !text-2xs [&>span:last-child]:size-[2.2em] [&>span:last-child]:-my-[0.7em] [&>span:last-child]:-mr-[1.07em] [&_svg]:size-[1.3em]"
+          />
         </div>
 
         {/* Mobile hamburger */}
