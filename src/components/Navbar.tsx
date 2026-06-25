@@ -15,7 +15,7 @@ const NAV_LINKS = [
 
 const RESOURCE_LINKS = [
   { label: "Contact", href: "/contact" },
-  { label: "FAQ", href: "/pricing#faq" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar() {
