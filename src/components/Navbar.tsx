@@ -272,19 +272,21 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <Button
-            href="/schedule"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="ghost"
-            size="md"
-            className="mt-8 w-full !gap-1.5"
-            iconLeft={<CalendarIcon />}
-            onClick={closeAll}
-          >
-            Book a Call
-          </Button>
-          <StartHiringButton variant="red" className="mt-3 w-full" onClick={closeAll} />
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button
+              href="/schedule"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="ghost"
+              size="md"
+              className="!gap-1.5"
+              iconLeft={<CalendarIcon />}
+              onClick={closeAll}
+            >
+              Book a Call
+            </Button>
+            <StartHiringButton variant="red" onClick={closeAll} />
+          </div>
         </div>
       )}
     </>
