@@ -36,7 +36,7 @@ function Header() {
           <p className="eyebrow justify-center">
             <LogoMark className="size-[0.85em]" /> Pricing
           </p>
-          <h1 className="mx-auto mt-5 text-balance font-display text-4xl font-bold tracking-[-0.02em] text-ink sm:whitespace-nowrap">
+          <h1 className="mx-auto mt-5 break-words font-display text-4xl font-bold tracking-[-0.02em] text-ink sm:whitespace-nowrap">
             Elite talent, at up to 85% less.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">

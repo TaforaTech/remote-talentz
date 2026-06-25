@@ -13,7 +13,7 @@ export default function Roles() {
             <LogoMark className="size-[0.85em]" /> Find Talents
           </p>
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="text-balance font-display text-4xl font-semibold tracking-[-0.02em] text-ink">
+            <h2 className="break-words font-display text-4xl font-semibold tracking-[-0.02em] text-ink sm:text-balance">
               Every role your roadmap needs — already vetted.
             </h2>
             <p className="max-w-md text-base text-ink-soft">

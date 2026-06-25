@@ -16,7 +16,7 @@ export default function Clients() {
         <p className="eyebrow">
           <LogoMark className="size-[0.85em]" /> Global network
         </p>
-        <h2 className="mx-auto mt-5 text-balance font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+        <h2 className="mx-auto mt-5 break-words font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-balance sm:text-4xl">
           We serve worldwide
         </h2>
       </Reveal>

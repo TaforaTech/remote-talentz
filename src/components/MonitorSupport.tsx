@@ -72,7 +72,7 @@ export default function MonitorSupport() {
         <p className="eyebrow justify-center">
           <LogoMark className="size-[0.85em]" /> The full package
         </p>
-        <h2 className="mt-5 text-balance font-display text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-ink sm:text-4xl">
+        <h2 className="mt-5 break-words font-display text-3xl font-bold leading-[1.1] tracking-[-0.02em] text-ink sm:text-balance sm:text-4xl">
           You Scale. We Source, Vet, and Manage
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">

@@ -35,7 +35,7 @@ export default function Footer() {
                 </span>
                 Talent has no timezone
               </p>
-              <h2 className="mt-5 text-balance font-display text-2xl font-bold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[2.7rem]">
+              <h2 className="mt-5 break-words font-display text-2xl font-bold leading-[1.1] tracking-[-0.02em] text-ink sm:text-balance sm:text-[2.7rem]">
                 Elite AI-native talent, matched in days.
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base text-ink-soft">

@@ -75,7 +75,7 @@ export default function WhyRemoteTalentz() {
         <p className="eyebrow">
           <LogoMark className="size-[0.85em]" /> Why us
         </p>
-        <h2 className="mx-auto mt-5 text-balance font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+        <h2 className="mx-auto mt-5 break-words font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-balance sm:text-4xl">
           Built different, on purpose
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">

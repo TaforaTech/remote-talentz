@@ -149,7 +149,7 @@ export default function TalentBridge() {
     <section className="relative overflow-hidden pt-[clamp(1.75rem,1rem+2.6vw,3.25rem)]">
       <div className="container-rt relative">
         <Reveal className="text-center">
-          <h2 className="mx-auto text-balance font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-4xl">
+          <h2 className="mx-auto break-words font-display text-3xl font-bold tracking-[-0.02em] text-ink sm:text-balance sm:text-4xl">
             From Bangladesh to global teams
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-ink-soft">
