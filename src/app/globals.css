@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* ============================================================
    REMOTETALENTZ — CENTRAL THEME CONTROL
@@ -93,56 +95,30 @@
   }
 }
 
-@theme inline {
-  /* Colors */
-  --color-ink: var(--rt-ink);
-  --color-ink-soft: var(--rt-ink-soft);
-  --color-ink-faint: var(--rt-ink-faint);
-  --color-paper: var(--rt-paper);
-  --color-paper-raised: var(--rt-paper-raised);
-  --color-line: var(--rt-line);
-  --color-line-soft: var(--rt-line-soft);
-  --color-red: var(--rt-red);
-  --color-red-deep: var(--rt-red-deep);
-  --color-red-tint: var(--rt-red-tint);
+/* Theme mapping (colors, fonts, type scale, fluid spacing) lives in
+   tailwind.config.ts — Tailwind v3 style. Keep the hex palette there in
+   sync with the --rt-* tokens above. */
 
-  /* Fonts — single typeface (Inter) across the whole site. font-display,
-     font-sans and font-mono all resolve to Inter, so the site uses one
-     family; weight/letter-spacing utilities still differentiate headings,
-     body and the uppercase "mono" labels. */
-  --font-display: var(--font-inter), "Inter", sans-serif;
-  --font-sans: var(--font-inter), "Inter", sans-serif;
-  --font-mono: var(--font-inter), "Inter", sans-serif;
-
-  /* Type scale — overrides Tailwind's static sizes with fluid tokens */
-  --text-2xs: var(--rt-step--2);
-  --text-2xs--line-height: 1.5;
-  --text-xs: var(--rt-step--1);
-  --text-xs--line-height: 1.55;
-  --text-sm: var(--rt-step--1);
-  --text-sm--line-height: 1.6;
-  --text-base: var(--rt-step-0);
-  --text-base--line-height: 1.65;
-  --text-lg: var(--rt-step-1);
-  --text-lg--line-height: 1.55;
-  --text-xl: var(--rt-step-2);
-  --text-xl--line-height: 1.4;
-  --text-2xl: var(--rt-step-3);
-  --text-2xl--line-height: 1.25;
-  --text-3xl: var(--rt-step-4);
-  --text-3xl--line-height: 1.15;
-  --text-4xl: var(--rt-step-5);
-  --text-4xl--line-height: 1.08;
-  --text-5xl: var(--rt-step-6);
-  --text-5xl--line-height: 1.04;
-  --text-hero: var(--rt-step-hero);
-  --text-hero--line-height: 0.98;
-
-  /* Fluid spacing utilities: p-gutter, py-section, h-nav … */
-  --spacing-gutter: var(--rt-gutter);
-  --spacing-section: var(--rt-section);
-  --spacing-section-tight: var(--rt-section-tight);
-  --spacing-nav: var(--rt-nav-h);
+/* Old-engine safety net: browsers without clamp() (< Chrome 79) would
+   otherwise compute every font-size/spacing var as invalid → default.
+   Give them the mid-range static values instead. */
+@supports not (width: clamp(1px, 2px, 3px)) {
+  :root {
+    --rt-step--2: 0.7rem;
+    --rt-step--1: 0.82rem;
+    --rt-step-0: 1rem;
+    --rt-step-1: 1.15rem;
+    --rt-step-2: 1.35rem;
+    --rt-step-3: 1.6rem;
+    --rt-step-4: 1.9rem;
+    --rt-step-5: 2.3rem;
+    --rt-step-6: 2.8rem;
+    --rt-step-hero: 3.4rem;
+    --rt-gutter: 5.55vw;
+    --rt-section: 6rem;
+    --rt-section-tight: 3rem;
+    --rt-nav-h: 4.25rem;
+  }
 }
 
 /* ---- Base ---- */
@@ -176,8 +152,12 @@ body {
      content and its side padding, so content width === --rt-content exactly
      once the viewport is wide enough — surplus space becomes auto-margin. */
   max-width: calc(var(--rt-content) + 2 * var(--rt-gutter));
-  margin-inline: auto;
-  padding-inline: var(--rt-gutter);
+  /* Physical properties, not margin-inline/padding-inline — logical
+     shorthands need Chrome 87+ and the site is LTR-only. */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--rt-gutter);
+  padding-right: var(--rt-gutter);
 }
 
 /* Brand gradient fill for small accents (verified mark, badges). */
@@ -713,7 +693,11 @@ body {
 .grain::before {
   content: "";
   position: fixed;
-  inset: 0;
+  /* longhands: `inset` shorthand needs Chrome 87+ */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   pointer-events: none;
   z-index: 60;
   opacity: 0.05;
